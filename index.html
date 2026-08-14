@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Skill-Gap Hub — Codeavengers | HACKORBIT 2K26</title>
+<style>
+  :root{
+    --navy:#12233F; --blue:#2E5EAA; --blue-light:#EAF0FB;
+    --paper:#F5F6F9; --card:#FFFFFF; --hairline:#DFE3EA;
+    --ink:#1B222E; --muted:#5B6472;
+    --critical:#C0392B; --critical-bg:#FBE9E7;
+    --high:#D9762B; --high-bg:#FDF0E3;
+    --medium:#B7950B; --medium-bg:#FCF6DC;
+    --low:#1E8449; --low-bg:#E7F5EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{color:var(--navy); font-weight:700;}
+  a{color:var(--blue);}
+
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(245,246,249,0.94); border-bottom:1px solid var(--hairline);}
+  .topbar-inner{max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{width:30px; height:30px; border-radius:7px; background:var(--navy); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .brand-text{font-weight:700; font-size:15px; color:var(--navy); letter-spacing:0.2px;}
+  .brand-sub{font-size:11px; color:var(--muted); font-weight:500;}
+  nav{display:flex; gap:22px; align-items:center;}
+  nav a{font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; letter-spacing:0.2px;}
+  nav a:hover{color:var(--navy);}
+  .badge{font-size:10.5px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase; background:var(--critical-bg); color:var(--critical); border:1px solid #f0c9c3; padding:4px 9px; border-radius:20px; white-space:nowrap;}
+
+  .hero{max-width:1180px; margin:0 auto; padding:56px 24px 40px;}
+  .hero-eyebrow{font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--blue); margin-bottom:14px;}
+  .hero h1{font-size:clamp(26px,4vw,42px); line-height:1.15; letter-spacing:-0.5px; max-width:780px;}
+  .hero p{font-size:16px; color:var(--muted); max-width:640px; margin-top:16px;}
+  .hero-thesis{margin-top:26px; padding:18px 22px; background:var(--card); border:1px solid var(--hairline); border-left:3px solid var(--blue); border-radius:4px; max-width:680px;}
+  .hero-thesis p{font-size:14.5px; color:var(--navy); font-style:italic; margin:0;}
+
+  section.page{max-width:1180px; margin:0 auto; padding:52px 24px; scroll-margin-top:70px;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
+  .section-num{font-size:13px; font-weight:700; color:var(--blue); font-family:'Courier New',monospace;}
+  .section-head h2{font-size:24px; letter-spacing:-0.3px;}
+  .section-purpose{color:var(--muted); font-size:14px; margin-bottom:24px; margin-left:34px;}
+
+  /* ---- filter bar ---- */
+  .filter-bar{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--hairline); border-radius:8px;
+    padding:14px 18px; margin-bottom:24px;
+  }
+  .filter-group{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .filter-group-label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); margin-right:2px;}
+  .filter-chip{
+    font-size:12.5px; font-weight:600; padding:5px 12px; border-radius:20px;
+    border:1px solid var(--hairline); background:var(--paper); color:var(--ink);
+    cursor:pointer; transition:all .12s ease;
+  }
+  .filter-chip:hover{border-color:var(--blue);}
+  .filter-chip.active{background:var(--navy); border-color:var(--navy); color:#fff;}
+  .filter-reset{
+    font-size:12px; font-weight:600; color:var(--blue); background:none; border:none;
+    cursor:pointer; text-decoration:underline; padding:4px 0;
+  }
+  .count-label{font-size:12px; color:var(--muted); margin-left:auto; font-weight:500;}
+
+  .kpi-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:32px;}
+  .kpi-card{background:var(--card); border:1px solid var(--hairline); border-radius:8px; padding:18px 16px;}
+  .kpi-value{font-family:'Courier New',monospace; font-weight:700; font-size:24px; color:var(--navy);}
+  .kpi-label{font-size:11px; color:var(--muted); margin-top:4px; font-weight:500;}
+
+  .chart-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .chart-grid.thirds{grid-template-columns:1fr 1fr 1fr;}
+  .panel{background:var(--card); border:1px solid var(--hairline); border-radius:8px; padding:20px;}
+  .panel h3{font-size:14px; font-weight:600; margin-bottom:14px; color:var(--navy);}
+  .panel-note{font-size:11.5px; color:var(--muted); margin-top:10px;}
+
+  .chip{display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:0.3px;}
+  .chip.CRITICAL{background:var(--critical-bg); color:var(--critical);}
+  .chip.HIGH{background:var(--high-bg); color:var(--high);}
+  .chip.MEDIUM{background:var(--medium-bg); color:var(--medium);}
+  .chip.LOW{background:var(--low-bg); color:var(--low);}
+
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  thead th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); font-weight:700; padding:9px 12px; border-bottom:1.5px solid var(--hairline);}
+  tbody td{padding:11px 12px; border-bottom:1px solid var(--hairline); vertical-align:middle;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.skill-name{font-weight:600; color:var(--navy);}
+  td.num{font-family:'Courier New',monospace; font-size:13px;}
+  td.rec{color:var(--muted); font-size:13px;}
+
+  .action-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:16px; align-items:start;}
+  .quad-key{display:flex; gap:14px; margin-top:12px; flex-wrap:wrap;}
+  .quad-key span{display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--muted);}
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+
+  footer{max-width:1180px; margin:0 auto; padding:36px 24px 60px; border-top:1px solid var(--hairline);}
+  footer .foot-grid{display:grid; grid-template-columns:2fr 1fr; gap:24px; margin-top:20px;}
+  footer p{font-size:12.5px; color:var(--muted); line-height:1.6;}
+  footer h4{font-size:12px; color:var(--navy); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.4px;}
+  .disclaimer{background:var(--critical-bg); border:1px solid #f0c9c3; border-radius:6px; padding:14px 16px; font-size:12.5px; color:#7a2e24; margin-bottom:18px;}
+
+  @media (max-width: 880px){
+    .kpi-grid{grid-template-columns:repeat(3,1fr);}
+    .chart-grid, .chart-grid.thirds, .action-grid, footer .foot-grid{grid-template-columns:1fr;}
+    nav{display:none;}
+    .count-label{margin-left:0; width:100%;}
+  }
+
+/* ===== Hackathon enhancement layer ===== */
+.analysis-strip{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin:0 0 18px;}
+.formula-card,.hero-insight{background:var(--card);border:1px solid var(--hairline);border-radius:10px;padding:20px;box-shadow:0 2px 10px rgba(18,35,63,.035);}
+.formula-card{border-left:4px solid var(--blue);}
+.hero-insight{border-top:3px solid var(--critical);}
+.mini-label{font-size:10.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);}
+.formula-title{margin-top:8px;font-size:20px;font-weight:800;color:var(--navy);}
+.formula-example{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-family:'Courier New',monospace;font-size:13px;color:var(--navy);}
+.formula-example span{color:var(--muted);font-size:11px;font-weight:700;margin-right:4px;}
+.formula-example b{color:var(--blue);font-size:16px;}
+.formula-note{font-size:11.5px;color:var(--muted);margin-top:10px;}
+.hero-skill{font-size:30px;line-height:1.1;font-weight:800;color:var(--navy);margin-top:7px;}
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;}
+.hero-metrics div{background:var(--paper);border:1px solid var(--hairline);border-radius:7px;padding:10px;}
+.hero-metrics span{display:block;font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.25px;}
+.hero-metrics strong{display:block;font-family:'Courier New',monospace;color:var(--navy);font-size:15px;margin-top:3px;}
+.hero-priority{margin-top:12px;display:inline-block;}
+.decision-ribbon{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center;background:var(--card);border:1px solid var(--hairline);border-radius:9px;padding:13px 16px;margin-bottom:16px;}
+.decision-step{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center;}
+.decision-step span{grid-row:1 / span 2;font-family:'Courier New',monospace;font-size:11px;color:var(--blue);font-weight:800;}
+.decision-step b{font-size:12.5px;color:var(--navy);}
+.decision-step em{font-size:10.5px;color:var(--muted);font-style:normal;}
+.decision-arrow{color:var(--blue);font-size:18px;text-align:center;}
+.branch-gap-panel{margin-top:16px;}
+.section-inline-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:12px;}
+.heatmap-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:10.5px;color:var(--muted);}
+.heatmap-legend span{display:flex;align-items:center;gap:5px;}
+.heatmap-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;border:1px solid rgba(0,0,0,.06);}
+.heat-low{background:#EAF0FB}.heat-med{background:#FDF0E3}.heat-high{background:#FBE9E7}
+.heatmap-wrap{overflow:auto;}
+.heatmap{width:100%;border-collapse:separate;border-spacing:0;font-size:11.5px;}
+.heatmap th,.heatmap td{padding:8px 9px;border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline);text-align:center;white-space:nowrap;}
+.heatmap th{font-size:10px;text-transform:uppercase;letter-spacing:.35px;color:var(--muted);background:var(--paper);}
+.heatmap th:first-child,.heatmap td:first-child{text-align:left;position:sticky;left:0;background:var(--card);z-index:1;}
+.heatmap .positive-low{background:#EAF0FB;color:var(--navy);}
+.heatmap .positive-med{background:#FDF0E3;color:#7a471f;font-weight:700;}
+.heatmap .positive-high{background:#FBE9E7;color:#7a2e24;font-weight:800;}
+.heatmap .negative{background:#E7F5EC;color:#176d3b;}
+@media(max-width:880px){
+  .analysis-strip{grid-template-columns:1fr;}
+  .decision-ribbon{grid-template-columns:1fr;gap:7px;}
+  .decision-arrow{display:none;}
+}
+
+
+/* ================= MODERN UI/UX ENHANCEMENT ================= */
+:root{
+  --glass:rgba(255,255,255,.78);
+  --shadow:0 12px 30px rgba(18,35,63,.08);
+  --shadow-soft:0 6px 18px rgba(18,35,63,.06);
+  --focus:#5b8def;
+}
+
+body{
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(46,94,170,.07), transparent 32%),
+    radial-gradient(circle at 90% 8%, rgba(18,35,63,.05), transparent 28%),
+    var(--paper);
+}
+
+body.intro-lock{overflow:hidden;}
+
+.topbar{
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 4px 18px rgba(18,35,63,.035);
+}
+
+.brand-mark{
+  box-shadow:0 6px 14px rgba(18,35,63,.18);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.brand:hover .brand-mark{transform:translateY(-1px) rotate(-2deg);box-shadow:0 10px 18px rgba(18,35,63,.2);}
+
+nav a{
+  position:relative;
+  padding:7px 0;
+  transition:color .2s ease;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:2px;border-radius:2px;
+  background:var(--blue);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .2s ease;
+}
+nav a:hover::after, nav a.nav-active::after{transform:scaleX(1);}
+nav a.nav-active{color:var(--navy);}
+
+.badge{
+  box-shadow:0 3px 10px rgba(192,57,43,.08);
+}
+
+.hero{
+  position:relative;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:240px;height:240px;
+  right:-120px;top:-80px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(46,94,170,.12), transparent 70%);
+  pointer-events:none;
+}
+.hero h1{
+  animation:heroIn .7s cubic-bezier(.22,1,.36,1) both;
+}
+.hero p{animation:heroIn .7s .08s cubic-bezier(.22,1,.36,1) both;}
+.hero-thesis{animation:heroIn .7s .16s cubic-bezier(.22,1,.36,1) both;box-shadow:var(--shadow-soft);}
+
+section.page{
+  position:relative;
+}
+
+.panel,.kpi-card,.filter-bar,.formula-card,.hero-insight,.decision-ribbon{
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.panel:hover,.kpi-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-soft);
+}
+.kpi-card:hover{border-color:#c9d5eb;}
+
+.kpi-value{
+  transition:transform .25s ease, color .25s ease;
+}
+.kpi-card:hover .kpi-value{transform:translateY(-1px);}
+
+.filter-bar{
+  position:sticky;
+  top:60px;
+  z-index:20;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 8px 20px rgba(18,35,63,.05);
+}
+
+.filter-group{
+  padding:3px 0;
+}
+
+.filter-chip{
+  position:relative;
+  overflow:hidden;
+  transition:all .18s ease;
+}
+.filter-chip::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  transform:translateX(-120%);
+}
+.filter-chip:hover::before{animation:chipShine .55s ease;}
+.filter-chip:focus-visible{
+  outline:3px solid rgba(91,141,239,.22);
+  outline-offset:2px;
+}
+.filter-chip.active{
+  box-shadow:0 6px 12px rgba(18,35,63,.12);
+  transform:translateY(-1px);
+}
+
+.filter-reset{
+  border-radius:8px;
+  transition:background .18s ease, color .18s ease;
+}
+.filter-reset:hover{
+  background:var(--blue-light);
+  text-decoration:none;
+}
+
+.slicer-meta{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin-left:auto;
+}
+.selection-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 9px;border-radius:999px;
+  background:var(--blue-light);color:var(--navy);
+  border:1px solid #d4e0f7;
+  font-size:10.5px;font-weight:700;
+}
+.selection-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--blue);
+  box-shadow:0 0 0 4px rgba(46,94,170,.10);
+}
+
+.section-reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .65s ease, transform .65s ease;
+}
+.section-reveal.revealed{opacity:1;transform:none;}
+
+.section-head h2{
+  position:relative;
+}
+.section-head h2::after{
+  content:"";
+  display:block;
+  width:36px;height:3px;border-radius:3px;
+  margin-top:7px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+}
+
+.analysis-strip,.decision-ribbon{
+  animation:softIn .55s .1s ease both;
+}
+
+.hero-insight{
+  position:relative;overflow:hidden;
+}
+.hero-insight::after{
+  content:"";
+  position:absolute;
+  width:160px;height:160px;
+  right:-70px;bottom:-90px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(192,57,43,.10), transparent 68%);
+}
+.hero-skill{letter-spacing:-.5px;}
+
+.progress-mini{
+  display:flex;align-items:center;gap:8px;
+  margin-top:10px;
+}
+.progress-track{
+  flex:1;height:6px;border-radius:999px;background:#edf0f5;overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:inherit;
+  background:linear-gradient(90deg,var(--blue),#7ea2e5);
+  transition:width .5s cubic-bezier(.22,1,.36,1);
+}
+.progress-label{font-size:10px;color:var(--muted);font-family:'Courier New',monospace;min-width:40px;text-align:right;}
+
+.interaction-hint{
+  margin-top:10px;
+  display:flex;align-items:center;gap:7px;
+  font-size:10.5px;color:var(--muted);
+}
+.interaction-hint .pulse{
+  width:7px;height:7px;border-radius:50%;background:var(--blue);
+  animation:pulseDot 1.6s ease-in-out infinite;
+}
+
+.toast{
+  position:fixed;
+  right:22px;bottom:22px;
+  z-index:1000;
+  max-width:340px;
+  background:rgba(18,35,63,.96);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:12px 14px;
+  box-shadow:0 16px 34px rgba(0,0,0,.18);
+  display:flex;align-items:center;gap:9px;
+  font-size:12px;font-weight:600;
+  opacity:0;transform:translateY(12px);
+  pointer-events:none;
+  transition:opacity .22s ease, transform .22s ease;
+}
+.toast.show{opacity:1;transform:none;}
+
+.scroll-progress{
+  position:fixed;left:0;top:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--blue),#7ea2e5);
+  z-index:2000;
+  box-shadow:0 0 12px rgba(46,94,170,.38);
+}
+
+.intro-overlay{
+  position:fixed;inset:0;z-index:5000;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(46,94,170,.22), transparent 32%),
+    radial-gradient(circle at 80% 80%, rgba(91,141,239,.15), transparent 30%),
+    #0b162a;
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:opacity .6s ease, visibility .6s ease;
+}
+.intro-overlay.hide{opacity:0;visibility:hidden;}
+.intro-grid{
+  position:absolute;inset:-20%;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:42px 42px;
+  transform:perspective(700px) rotateX(58deg) translateY(10%);
+  transform-origin:center bottom;
+  animation:gridDrift 14s linear infinite;
+}
+.intro-orb{
+  position:absolute;border-radius:50%;
+  filter:blur(2px);
+  animation:floatOrb 5s ease-in-out infinite;
+}
+.intro-orb.a{width:230px;height:230px;left:8%;top:12%;background:radial-gradient(circle,rgba(91,141,239,.25),transparent 70%);}
+.intro-orb.b{width:320px;height:320px;right:5%;bottom:7%;background:radial-gradient(circle,rgba(46,94,170,.18),transparent 70%);animation-delay:-2s;}
+.intro-content{
+  position:relative;z-index:2;
+  width:min(760px,calc(100% - 48px));
+  text-align:center;
+}
+.intro-kicker{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:#9bb9f0;font-weight:800;
+  animation:rise .7s ease both;
+}
+.intro-title{
+  font-size:clamp(38px,7vw,72px);
+  line-height:1.02;
+  letter-spacing:-2px;
+  margin-top:14px;
+  color:#fff;
+  animation:rise .7s .08s ease both;
+}
+.intro-title span{color:#8cb0ef;}
+.intro-sub{
+  max-width:640px;margin:18px auto 0;
+  color:#b7c4d8;font-size:15px;
+  animation:rise .7s .16s ease both;
+}
+.intro-flow{
+  display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-top:26px;
+  animation:rise .7s .24s ease both;
+}
+.intro-node{
+  padding:9px 13px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:#e8eef8;font-size:11px;font-weight:700;
+  backdrop-filter:blur(6px);
+}
+.intro-arrow{color:#7ea2e5;font-size:16px;}
+.intro-cta{
+  margin-top:30px;
+  padding:12px 18px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background:#fff;color:var(--navy);
+  font-size:12px;font-weight:800;cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,.22);
+  transition:transform .2s ease,box-shadow .2s ease;
+  animation:rise .7s .32s ease both;
+}
+.intro-cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.28);}
+.intro-hint{margin-top:10px;color:#72839c;font-size:10.5px;}
+
+.demo-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:14px;padding:6px 10px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.09);
+  color:#b7c4d8;font-size:10px;font-weight:700;
+}
+.demo-badge .dot{width:7px;height:7px;border-radius:50%;background:#79c99b;box-shadow:0 0 0 4px rgba(121,201,155,.1);}
+
+.action-primary{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 16px;margin-bottom:16px;
+  border:1px solid #cbd9f1;border-radius:9px;
+  background:linear-gradient(90deg,#f5f8fe,#fff);
+}
+.action-primary .copy{display:flex;align-items:center;gap:10px;}
+.action-primary .icon{
+  width:34px;height:34px;border-radius:9px;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;
+}
+.action-primary strong{display:block;color:var(--navy);font-size:13px;}
+.action-primary span{display:block;color:var(--muted);font-size:11px;margin-top:1px;}
+.quick-demo{
+  padding:9px 12px;border-radius:8px;border:1px solid #cbd9f1;
+  background:#fff;color:var(--navy);font-size:11px;font-weight:800;cursor:pointer;
+  transition:.18s ease;
+}
+.quick-demo:hover{transform:translateY(-1px);border-color:#9db8e8;box-shadow:0 6px 14px rgba(18,35,63,.08);}
+
+@keyframes heroIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes softIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes chipShine{to{transform:translateX(120%)}}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.45);opacity:1}}
+@keyframes gridDrift{from{transform:perspective(700px) rotateX(58deg) translateY(10%) translateX(0)}to{transform:perspective(700px) rotateX(58deg) translateY(10%) translateX(-42px)}}
+@keyframes floatOrb{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-14px,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+@media(max-width:880px){
+  .filter-bar{top:58px;}
+  .slicer-meta{margin-left:0;width:100%;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important;transition-duration:.01ms !important;}
+}
+
+</style>
+</head>
+<body class="intro-lock">
+
+<div class="intro-overlay" id="introOverlay" aria-hidden="false">
+  <div class="intro-grid"></div>
+  <div class="intro-orb a"></div>
+  <div class="intro-orb b"></div>
+  <div class="intro-content">
+    <div class="intro-kicker">HACKORBIT 2K26 &middot; TRACK A &middot; DATADRISHTI</div>
+    <h1 class="intro-title">Placement <span>Skill-Gap</span> Hub</h1>
+    <p class="intro-sub">From placement statistics to actionable skill intelligence — compare industry demand with student readiness and identify what to improve next.</p>
+    <div class="intro-flow">
+      <div class="intro-node">Placement</div><div class="intro-arrow">&rarr;</div>
+      <div class="intro-node">Demand</div><div class="intro-arrow">&rarr;</div>
+      <div class="intro-node">Readiness</div><div class="intro-arrow">&rarr;</div>
+      <div class="intro-node">Gap</div><div class="intro-arrow">&rarr;</div>
+      <div class="intro-node">Action</div>
+    </div>
+    <div class="demo-badge"><i class="dot"></i> Sample / Demonstration Dataset</div><br>
+    <button class="intro-cta" id="enterDashboard">Explore Dashboard &rarr;</button>
+    <div class="intro-hint">Press Enter to continue</div>
+  </div>
+</div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="toast" id="toast"><span>✓</span><span id="toastText">Filter updated</span></div>
+
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+          <path d="M4 20V10M12 20V4M20 20V14" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-text">Placement Skill-Gap Hub</div>
+        <div class="brand-sub">Codeavengers &middot; HACKORBIT 2K26</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#command-center">Command Center</a>
+      <a href="#skill-gap">Skill Gap</a>
+      <a href="#action-center">Action Center</a>
+    </nav>
+    <div class="badge">Sample / Demonstration Dataset</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Track A &mdash; DataDrishti</div>
+  <h1>Placement statistics tell us what happened. This reveals where the skill gaps are &mdash; and what to improve.</h1>
+  <p>A web companion to the Power BI build &mdash; same data, same measures, same logic. Follow the decision path: placement outcomes &rarr; industry demand &rarr; student readiness &rarr; skill gap &rarr; training priority.</p>
+  <div class="hero-thesis">
+    <p>&ldquo;Our differentiation is the integration of placement outcomes, recruiter skill demand, and student readiness into a single actionable skill-gap workflow.&rdquo;</p>
+  </div>
+</div>
+
+<section class="page" id="command-center">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2>Placement Command Center</h2>
+  </div>
+  <p class="section-purpose">What is happening?</p>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">Branch</span>
+      <button class="filter-chip" data-group="branch" data-value="AIDS" type="button">AIDS</button><button class="filter-chip" data-group="branch" data-value="CSE" type="button">CSE</button><button class="filter-chip" data-group="branch" data-value="ECE" type="button">ECE</button><button class="filter-chip" data-group="branch" data-value="IT" type="button">IT</button><button class="filter-chip" data-group="branch" data-value="MECH" type="button">MECH</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Batch</span>
+      <button class="filter-chip" data-group="batch" data-value="2025" type="button">2025</button><button class="filter-chip" data-group="batch" data-value="2026" type="button">2026</button>
+    </div>
+    <button class="filter-reset" id="resetCommandFilters" type="button">Reset</button>
+    <span class="count-label" id="countLabel">Showing all 240 students</span>
+    <div class="slicer-meta" id="commandSelectionMeta">
+      <span class="selection-pill"><i class="selection-dot"></i><span id="selectionText">All branches &middot; All batches</span></span>
+    </div>
+  </div>
+    <div class="interaction-hint"><i class="pulse"></i> Use slicer buttons to drive the entire decision story.</div>
+
+  <div class="kpi-grid" id="kpiGrid"><div class="kpi-card"><div class="kpi-value">240</div><div class="kpi-label">Total Students</div></div><div class="kpi-card"><div class="kpi-value">150</div><div class="kpi-label">Students Placed</div></div><div class="kpi-card"><div class="kpi-value">62.5%</div><div class="kpi-label">Placement Rate</div></div><div class="kpi-card"><div class="kpi-value">6.61</div><div class="kpi-label">Avg Package (LPA)</div></div><div class="kpi-card"><div class="kpi-value">17.88</div><div class="kpi-label">Highest Package (LPA)</div></div><div class="kpi-card"><div class="kpi-value">22</div><div class="kpi-label">Company Count</div></div></div>
+
+  <div class="chart-grid thirds">
+    <div class="panel">
+      <h3>Placement Rate by Branch</h3>
+      <div id="branchChart"><svg viewBox="0 0 520 176" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<text x="140" y="25.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">CSE</text>
+<rect x="148" y="11" width="283.9" height="22" rx="4" fill="#2E5EAA"><title>CSE: 80.0%</title></rect>
+<text x="438.9" y="25.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">80.0%</text>
+<text x="140" y="58.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">AIDS</text>
+<rect x="148" y="44" width="269.7" height="22" rx="4" fill="#2E5EAA"><title>AIDS: 76.0%</title></rect>
+<text x="424.7" y="58.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">76.0%</text>
+<text x="140" y="91.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">IT</text>
+<rect x="148" y="77" width="269.7" height="22" rx="4" fill="#2E5EAA"><title>IT: 76.0%</title></rect>
+<text x="424.7" y="91.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">76.0%</text>
+<text x="140" y="124.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">ECE</text>
+<rect x="148" y="110" width="118.3" height="22" rx="4" fill="#2E5EAA"><title>ECE: 33.3%</title></rect>
+<text x="273.3" y="124.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">33.3%</text>
+<text x="140" y="157.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">MECH</text>
+<rect x="148" y="143" width="111.5" height="22" rx="4" fill="#2E5EAA"><title>MECH: 31.4%</title></rect>
+<text x="266.5" y="157.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">31.4%</text>
+</svg></div>
+    </div>
+    <div class="panel">
+      <h3>Students Placed by Company (Top 8)</h3>
+      <div id="companyChart"><svg viewBox="0 0 520 208" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<text x="140" y="19.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Cobalt Robotics</text>
+<rect x="148" y="8" width="276.5" height="17" rx="4" fill="#12233F"><title>Cobalt Robotics: 11</title></rect>
+<text x="431.5" y="19.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">11</text>
+<text x="140" y="44.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Union Foundry Works</text>
+<rect x="148" y="33" width="251.4" height="17" rx="4" fill="#12233F"><title>Union Foundry Works: 10</title></rect>
+<text x="406.4" y="44.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">10</text>
+<text x="140" y="69.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Crestline Auto Components</text>
+<rect x="148" y="58" width="251.4" height="17" rx="4" fill="#12233F"><title>Crestline Auto Components: 10</title></rect>
+<text x="406.4" y="69.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">10</text>
+<text x="140" y="94.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Pinegrove Electricals</text>
+<rect x="148" y="83" width="226.2" height="17" rx="4" fill="#12233F"><title>Pinegrove Electricals: 9</title></rect>
+<text x="381.2" y="94.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">9</text>
+<text x="140" y="119.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Copperleaf Industries</text>
+<rect x="148" y="108" width="201.1" height="17" rx="4" fill="#12233F"><title>Copperleaf Industries: 8</title></rect>
+<text x="356.1" y="119.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">8</text>
+<text x="140" y="144.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Millbrook Hydraulics</text>
+<rect x="148" y="133" width="201.1" height="17" rx="4" fill="#12233F"><title>Millbrook Hydraulics: 8</title></rect>
+<text x="356.1" y="144.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">8</text>
+<text x="140" y="169.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Verdant Software</text>
+<rect x="148" y="158" width="201.1" height="17" rx="4" fill="#12233F"><title>Verdant Software: 8</title></rect>
+<text x="356.1" y="169.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">8</text>
+<text x="140" y="194.2" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Amberline Textiles</text>
+<rect x="148" y="183" width="201.1" height="17" rx="4" fill="#12233F"><title>Amberline Textiles: 8</title></rect>
+<text x="356.1" y="194.2" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">8</text>
+</svg></div>
+    </div>
+    <div class="panel">
+      <h3>Package Distribution (LPA)</h3>
+      <div id="packageChart"><svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<line x1="8" y1="200.0" x2="512.0" y2="200.0" stroke="#DFE3EA" stroke-width="1"/>
+<rect x="8.0" y="200.0" width="43.2" height="1.0" rx="3" fill="#8FADDD"><title>0-2 LPA: 0 students</title></rect>
+<text x="29.6" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">0-2</text>
+<rect x="59.2" y="108.4" width="43.2" height="91.6" rx="3" fill="#8FADDD"><title>2-4 LPA: 29 students</title></rect>
+<text x="80.8" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">2-4</text>
+<rect x="110.4" y="20.0" width="43.2" height="180.0" rx="3" fill="#8FADDD"><title>4-6 LPA: 57 students</title></rect>
+<text x="132.0" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">4-6</text>
+<rect x="161.6" y="114.7" width="43.2" height="85.3" rx="3" fill="#8FADDD"><title>6-8 LPA: 27 students</title></rect>
+<text x="183.2" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">6-8</text>
+<rect x="212.8" y="127.4" width="43.2" height="72.6" rx="3" fill="#8FADDD"><title>8-10 LPA: 23 students</title></rect>
+<text x="234.4" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">8-10</text>
+<rect x="264.0" y="187.4" width="43.2" height="12.6" rx="3" fill="#8FADDD"><title>10-12 LPA: 4 students</title></rect>
+<text x="285.6" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">10-12</text>
+<rect x="315.2" y="193.7" width="43.2" height="6.3" rx="3" fill="#8FADDD"><title>12-14 LPA: 2 students</title></rect>
+<text x="336.8" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">12-14</text>
+<rect x="366.4" y="190.5" width="43.2" height="9.5" rx="3" fill="#8FADDD"><title>14-16 LPA: 3 students</title></rect>
+<text x="388.0" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">14-16</text>
+<rect x="417.6" y="184.2" width="43.2" height="15.8" rx="3" fill="#8FADDD"><title>16-18 LPA: 5 students</title></rect>
+<text x="439.2" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">16-18</text>
+<rect x="468.8" y="200.0" width="43.2" height="1.0" rx="3" fill="#8FADDD"><title>18-20 LPA: 0 students</title></rect>
+<text x="490.4" y="213.0" text-anchor="middle" font-size="9" font-family:inherit; fill="#5B6472">18-20</text>
+</svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="skill-gap">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2>Skill Demand vs. Readiness</h2>
+  </div>
+  <p class="section-purpose">What does industry need, and are we ready?</p>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">Skill</span>
+      <button class="filter-chip" data-group="skill" data-value="Python" type="button">Python</button><button class="filter-chip" data-group="skill" data-value="SQL" type="button">SQL</button><button class="filter-chip" data-group="skill" data-value="Power BI" type="button">Power BI</button><button class="filter-chip" data-group="skill" data-value="Machine Learning" type="button">Machine Learning</button><button class="filter-chip" data-group="skill" data-value="Java" type="button">Java</button><button class="filter-chip" data-group="skill" data-value="Communication" type="button">Communication</button>
+    </div>
+    <button class="filter-reset" id="resetSkillFilters" type="button">Reset</button>
+  </div>
+
+  
+  <div class="analysis-strip">
+    <div class="formula-card">
+      <div class="mini-label">CORE ANALYTIC</div>
+      <div class="formula-title">Skill Gap = Industry Demand &minus; Student Readiness</div>
+      <div class="formula-example" id="formulaExample"></div>
+      <div class="formula-note">A positive gap indicates a readiness shortfall relative to the demonstration demand level.</div>
+    </div>
+    <div class="hero-insight" id="heroInsight">
+      <div class="mini-label">HIGHEST PRIORITY SKILL</div>
+      <div class="hero-skill" id="heroSkill">SQL</div>
+      <div class="hero-metrics">
+        <div><span>Demand</span><strong id="heroDemand">86.0%</strong></div>
+        <div><span>Readiness</span><strong id="heroReadiness">49.8%</strong></div>
+        <div><span>Gap</span><strong id="heroGap">36.2 pts</strong></div>
+      </div>
+      <div class="hero-priority chip CRITICAL" id="heroPriority">CRITICAL</div>
+    </div>
+  </div>
+
+<div class="chart-grid" style="margin-bottom:16px;">
+    <div class="panel">
+      <h3>Industry Demand % by Skill</h3>
+      <div id="demandChart"><svg viewBox="0 0 520 209" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<text x="140" y="25.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">SQL</text>
+<rect x="148" y="11" width="283.9" height="22" rx="4" fill="#2E5EAA"><title>SQL: 86%</title></rect>
+<text x="438.9" y="25.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">86%</text>
+<text x="140" y="58.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Power BI</text>
+<rect x="148" y="44" width="270.7" height="22" rx="4" fill="#2E5EAA"><title>Power BI: 82%</title></rect>
+<text x="425.7" y="58.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">82%</text>
+<text x="140" y="91.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Python</text>
+<rect x="148" y="77" width="224.5" height="22" rx="4" fill="#2E5EAA"><title>Python: 68%</title></rect>
+<text x="379.5" y="91.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">68%</text>
+<text x="140" y="124.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Java</text>
+<rect x="148" y="110" width="194.8" height="22" rx="4" fill="#2E5EAA"><title>Java: 59%</title></rect>
+<text x="349.8" y="124.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">59%</text>
+<text x="140" y="157.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Machine Learning</text>
+<rect x="148" y="143" width="181.6" height="22" rx="4" fill="#2E5EAA"><title>Machine Learning: 55%</title></rect>
+<text x="336.6" y="157.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">55%</text>
+<text x="140" y="190.5" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Communication</text>
+<rect x="148" y="176" width="165.1" height="22" rx="4" fill="#2E5EAA"><title>Communication: 50%</title></rect>
+<text x="320.1" y="190.5" font-size="10.5" font-family:'Courier New',monospace; fill="#12233F">50%</text>
+</svg></div>
+    </div>
+    <div class="panel">
+      <h3>Demand % vs. Readiness % by Skill</h3>
+      <div id="pairedChart"><svg viewBox="0 0 520 271" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect x="112" y="4" width="11" height="11" rx="2" fill="#2E5EAA"/>
+<text x="128" y="13.5" font-size="11" font-family:inherit; fill="#5B6472">Industry Demand %</text>
+<rect x="262" y="4" width="11" height="11" rx="2" fill="#12233F"/>
+<text x="278" y="13.5" font-size="11" font-family:inherit; fill="#5B6472">Student Readiness %</text>
+<text x="104" y="53.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">SQL</text>
+<rect x="112" y="37" width="304.4" height="10" rx="3" fill="#2E5EAA"><title>SQL Demand: 86%</title></rect>
+<text x="422.4" y="45.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">86%</text>
+<rect x="112" y="50" width="176.1" height="10" rx="3" fill="#12233F"><title>SQL Readiness: 49.8%</title></rect>
+<text x="294.1" y="58.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">50%</text>
+<text x="104" y="92.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Power BI</text>
+<rect x="112" y="76" width="290.3" height="10" rx="3" fill="#2E5EAA"><title>Power BI Demand: 82%</title></rect>
+<text x="408.3" y="84.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">82%</text>
+<rect x="112" y="89" width="163.0" height="10" rx="3" fill="#12233F"><title>Power BI Readiness: 46.0%</title></rect>
+<text x="281.0" y="97.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">46%</text>
+<text x="104" y="131.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Python</text>
+<rect x="112" y="115" width="240.7" height="10" rx="3" fill="#2E5EAA"><title>Python Demand: 68%</title></rect>
+<text x="358.7" y="123.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">68%</text>
+<rect x="112" y="128" width="179.5" height="10" rx="3" fill="#12233F"><title>Python Readiness: 50.7%</title></rect>
+<text x="297.5" y="136.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">51%</text>
+<text x="104" y="170.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Machine Learning</text>
+<rect x="112" y="154" width="194.7" height="10" rx="3" fill="#2E5EAA"><title>Machine Learning Demand: 55%</title></rect>
+<text x="312.7" y="162.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">55%</text>
+<rect x="112" y="167" width="152.7" height="10" rx="3" fill="#12233F"><title>Machine Learning Readiness: 43.1%</title></rect>
+<text x="270.7" y="175.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">43%</text>
+<text x="104" y="209.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Java</text>
+<rect x="112" y="193" width="208.9" height="10" rx="3" fill="#2E5EAA"><title>Java Demand: 59%</title></rect>
+<text x="326.9" y="201.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">59%</text>
+<rect x="112" y="206" width="177.9" height="10" rx="3" fill="#12233F"><title>Java Readiness: 50.2%</title></rect>
+<text x="295.9" y="214.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">50%</text>
+<text x="104" y="248.0" text-anchor="end" font-size="11" font-family:inherit; fill="#5B6472">Communication</text>
+<rect x="112" y="232" width="177.0" height="10" rx="3" fill="#2E5EAA"><title>Communication Demand: 50%</title></rect>
+<text x="295.0" y="240.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">50%</text>
+<rect x="112" y="245" width="239.6" height="10" rx="3" fill="#12233F"><title>Communication Readiness: 67.7%</title></rect>
+<text x="357.6" y="253.0" font-size="9.5" font-family:'Courier New',monospace; fill="#12233F">68%</text>
+</svg></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Skill Gap Table</h3>
+    <table>
+      <thead>
+        <tr><th>Skill</th><th>Industry Demand %</th><th>Student Readiness %</th><th>Skill Gap</th><th>Priority</th></tr>
+      </thead>
+      <tbody id="gapTableBody">
+  <tr>
+    <td class="skill-name">SQL</td>
+    <td class="num">86.0%</td>
+    <td class="num">49.8%</td>
+    <td class="num">36.2%</td>
+    <td><span class="chip CRITICAL">CRITICAL</span></td>
+  </tr>
+  <tr>
+    <td class="skill-name">Power BI</td>
+    <td class="num">82.0%</td>
+    <td class="num">46.0%</td>
+    <td class="num">36.0%</td>
+    <td><span class="chip CRITICAL">CRITICAL</span></td>
+  </tr>
+  <tr>
+    <td class="skill-name">Python</td>
+    <td class="num">68.0%</td>
+    <td class="num">50.7%</td>
+    <td class="num">17.3%</td>
+    <td><span class="chip HIGH">HIGH</span></td>
+  </tr>
+  <tr>
+    <td class="skill-name">Machine Learning</td>
+    <td class="num">55.0%</td>
+    <td class="num">43.1%</td>
+    <td class="num">11.9%</td>
+    <td><span class="chip MEDIUM">MEDIUM</span></td>
+  </tr>
+  <tr>
+    <td class="skill-name">Java</td>
+    <td class="num">59.0%</td>
+    <td class="num">50.2%</td>
+    <td class="num">8.8%</td>
+    <td><span class="chip MEDIUM">MEDIUM</span></td>
+  </tr>
+  <tr>
+    <td class="skill-name">Communication</td>
+    <td class="num">50.0%</td>
+    <td class="num">67.7%</td>
+    <td class="num">-17.7%</td>
+    <td><span class="chip LOW">LOW</span></td>
+  </tr></tbody>
+    </table>
+  </div>
+</section>
+
+
+  <div class="panel branch-gap-panel">
+    <div class="section-inline-head">
+      <div>
+        <h3>Branch Skill-Gap Heatmap</h3>
+        <p class="panel-note" style="margin-top:4px;">Select a branch above to focus the skill story. Darker cells represent larger positive gaps.</p>
+      </div>
+      <div class="heatmap-legend">
+        <span><i class="heat-low"></i>Low</span>
+        <span><i class="heat-med"></i>Medium</span>
+        <span><i class="heat-high"></i>High</span>
+      </div>
+    </div>
+    <div id="branchHeatmap"></div>
+  </div>
+
+</section>
+
+<section class="page" id="action-center">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2>Action Center</h2>
+  </div>
+  <p class="section-purpose">What should we do next? &mdash; uses the same Skill filter as above.</p>
+
+  
+  
+  <div class="action-primary">
+    <div class="copy">
+      <div class="icon">↗</div>
+      <div>
+        <strong>2-minute evaluator path</strong>
+        <span>Focus on the largest gap, then show the recommended action.</span>
+      </div>
+    </div>
+    <button class="quick-demo" id="quickDemoBtn" type="button">Run demo path</button>
+  </div>
+
+<div class="decision-ribbon">
+    <div class="decision-step"><span>01</span><b>Measure</b><em>Placement outcomes</em></div>
+    <div class="decision-arrow">&rarr;</div>
+    <div class="decision-step"><span>02</span><b>Compare</b><em>Demand vs readiness</em></div>
+    <div class="decision-arrow">&rarr;</div>
+    <div class="decision-step"><span>03</span><b>Prioritize</b><em>Largest positive gap</em></div>
+    <div class="decision-arrow">&rarr;</div>
+    <div class="decision-step"><span>04</span><b>Act</b><em>Training recommendation</em></div>
+  </div>
+
+<div class="action-grid">
+    <div class="panel">
+      <h3>Skill Gap Priority Matrix</h3>
+      <div id="matrixChart"><svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<rect x="46" y="30" width="171.8" height="197.3" fill="#C0392B" opacity="0.07"/>
+<rect x="217.8" y="30" width="286.2" height="197.3" fill="#1E8449" opacity="0.07"/>
+<rect x="46" y="227.3" width="171.8" height="112.7" fill="#5B6472" opacity="0.06"/>
+<rect x="217.8" y="227.3" width="286.2" height="112.7" fill="#B7950B" opacity="0.07"/>
+<line x1="217.8" y1="30" x2="217.8" y2="340" stroke="#DFE3EA" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="46" y1="227.3" x2="504" y2="227.3" stroke="#DFE3EA" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="46" y="30" width="458" height="310" fill="none" stroke="#DFE3EA" stroke-width="1"/>
+<text x="52" y="44" font-size="9.5" font-weight="700" font-family:inherit; fill="#C0392B">CRITICAL TRAINING PRIORITY</text>
+<text x="448" y="44" font-size="9.5" font-weight="700" font-family:inherit; fill="#1E8449">MAINTAIN</text>
+<text x="52" y="332" font-size="9.5" font-weight="700" font-family:inherit; fill="#5B6472">LOW PRIORITY</text>
+<text x="446" y="332" font-size="9.5" font-weight="700" font-family:inherit; fill="#B7950B">MONITOR</text>
+<text x="275.0" y="372" text-anchor="middle" font-size="10.5" font-family:inherit; fill="#5B6472">Student Readiness %</text>
+<text x="14" y="185.0" font-size="10.5" font-family:inherit; fill="#5B6472" transform="rotate(-90 14 185.0)">Industry Demand %</text>
+<circle cx="215.0" cy="80.7" r="6.5" fill="#C0392B" stroke="#fff" stroke-width="1.5"><title>SQL: Readiness 49.8% | Demand 86% | Gap 36.2% | CRITICAL</title></circle>
+<text x="224.0" y="84.7" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">SQL</text>
+<circle cx="172.5" cy="103.3" r="6.5" fill="#C0392B" stroke="#fff" stroke-width="1.5"><title>Power BI: Readiness 46.0% | Demand 82% | Gap 36.0% | CRITICAL</title></circle>
+<text x="181.5" y="107.3" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">Power BI</text>
+<circle cx="225.9" cy="182.2" r="6.5" fill="#D9762B" stroke="#fff" stroke-width="1.5"><title>Python: Readiness 50.7% | Demand 68% | Gap 17.3% | HIGH</title></circle>
+<text x="234.9" y="186.2" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">Python</text>
+<circle cx="139.1" cy="255.5" r="6.5" fill="#B7950B" stroke="#fff" stroke-width="1.5"><title>Machine Learning: Readiness 43.1% | Demand 55% | Gap 11.9% | MEDIUM</title></circle>
+<text x="148.1" y="259.5" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">Machine Learning</text>
+<circle cx="220.6" cy="232.9" r="6.5" fill="#B7950B" stroke="#fff" stroke-width="1.5"><title>Java: Readiness 50.2% | Demand 59% | Gap 8.8% | MEDIUM</title></circle>
+<text x="229.6" y="236.9" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">Java</text>
+<circle cx="420.1" cy="283.6" r="6.5" fill="#1E8449" stroke="#fff" stroke-width="1.5"><title>Communication: Readiness 67.7% | Demand 50% | Gap -17.7% | LOW</title></circle>
+<text x="429.1" y="287.6" font-size="10.5" font-weight="600" font-family:inherit; fill="#12233F">Communication</text>
+</svg></div>
+      <div class="quad-key">
+        <span><i class="dot" style="background:var(--critical)"></i>Critical training priority</span>
+        <span><i class="dot" style="background:var(--high)"></i>High</span>
+        <span><i class="dot" style="background:var(--medium)"></i>Medium / Monitor</span>
+        <span><i class="dot" style="background:var(--low)"></i>Low / Maintain</span>
+      </div>
+      <p class="panel-note">X: Student Readiness % &middot; Y: Industry Demand % &middot; High demand + low readiness (top-left) = highest priority.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Training Recommendation Engine <span style="font-weight:400; color:var(--muted); font-size:11.5px;">(Rule-Based)</span></h3>
+      <table>
+        <thead><tr><th>Skill</th><th>Priority</th><th>Recommendation</th></tr></thead>
+        <tbody id="recTableBody">
+  <tr>
+    <td class="skill-name">SQL</td>
+    <td><span class="chip CRITICAL">CRITICAL</span></td>
+    <td class="rec">Prioritize SQL training immediately — largest readiness gap.</td>
+  </tr>
+  <tr>
+    <td class="skill-name">Power BI</td>
+    <td><span class="chip CRITICAL">CRITICAL</span></td>
+    <td class="rec">Prioritize Power BI training immediately — largest readiness gap.</td>
+  </tr>
+  <tr>
+    <td class="skill-name">Python</td>
+    <td><span class="chip HIGH">HIGH</span></td>
+    <td class="rec">Schedule Python training this term — meaningful shortfall.</td>
+  </tr>
+  <tr>
+    <td class="skill-name">Machine Learning</td>
+    <td><span class="chip MEDIUM">MEDIUM</span></td>
+    <td class="rec">Reinforce Machine Learning through practice — modest shortfall.</td>
+  </tr>
+  <tr>
+    <td class="skill-name">Java</td>
+    <td><span class="chip MEDIUM">MEDIUM</span></td>
+    <td class="rec">Reinforce Java through practice — modest shortfall.</td>
+  </tr>
+  <tr>
+    <td class="skill-name">Communication</td>
+    <td><span class="chip LOW">LOW</span></td>
+    <td class="rec">Maintain current Communication readiness — no urgent gap.</td>
+  </tr></tbody>
+      </table>
+      <p class="panel-note">SWITCH statement on Skill Gap % thresholds &mdash; not AI or machine learning.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="disclaimer">
+    <strong>Sample / Demonstration Dataset.</strong> No real Bannari Amman Institute of Technology student, placement, or recruiter data is used. Figures shown are synthetic, built with deliberate logical relationships &mdash; see <code>report_HACKORBIT.pdf</code> for full methodology.
+  </div>
+  <div class="foot-grid">
+    <div>
+      <h4>Placement Skill-Gap Hub</h4>
+      <p style="margin-top:-2px;font-size:10.5px;color:var(--blue);font-weight:700;">Designed as a judge-first showcase: understand the insight before the implementation.</p>
+      <p>Built for HACKORBIT 2K26, Track A &mdash; DataDrishti, by Team Codeavengers, Bannari Amman Institute of Technology. Filters recompute every KPI, chart, and table client-side from the same 3-table dataset used in Power BI &mdash; no server, no external library.</p>
+    </div>
+    <div>
+      <h4>Reference</h4>
+      <p>Full technical walkthrough, DAX formulas, and judge Q&amp;A: <code>report_HACKORBIT.pdf</code><br>Build workflow: <code>workflow_HACKORBIT.pdf</code></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const STUDENTS = [["STU0001", "CSE", 2025, "Not Placed", "", null], ["STU0002", "CSE", 2026, "Placed", "Anchor Logistics Tech", 4.72], ["STU0003", "CSE", 2025, "Placed", "Copperleaf Industries", 5.23], ["STU0004", "CSE", 2026, "Placed", "Millbrook Hydraulics", 5.92], ["STU0005", "CSE", 2025, "Not Placed", "", null], ["STU0006", "CSE", 2026, "Placed", "Nexalytics Global", 16.99], ["STU0007", "CSE", 2025, "Placed", "Quantera Labs", 11.1], ["STU0008", "CSE", 2026, "Placed", "Verdant Software", 7.46], ["STU0009", "CSE", 2025, "Placed", "Verdant Software", 7.71], ["STU0010", "CSE", 2026, "Placed", "Anchor Logistics Tech", 5.73], ["STU0011", "CSE", 2025, "Placed", "Steadfast Engineering", 3.95], ["STU0012", "CSE", 2026, "Placed", "Northstar Manufacturing", 3.29], ["STU0013", "CSE", 2025, "Placed", "Havenbyte Systems", 9.88], ["STU0014", "CSE", 2026, "Placed", "Havenbyte Systems", 8.75], ["STU0015", "CSE", 2025, "Not Placed", "", null], ["STU0016", "CSE", 2026, "Not Placed", "", null], ["STU0017", "CSE", 2025, "Placed", "Amberline Textiles", 3.05], ["STU0018", "CSE", 2026, "Placed", "Cobalt Robotics", 8.47], ["STU0019", "CSE", 2025, "Placed", "Cobalt Robotics", 7.46], ["STU0020", "CSE", 2026, "Not Placed", "", null], ["STU0021", "CSE", 2025, "Placed", "Falcon Precision Tools", 5.61], ["STU0022", "CSE", 2026, "Placed", "Pinegrove Electricals", 3.84], ["STU0023", "CSE", 2025, "Placed", "Copperleaf Industries", 3.61], ["STU0024", "CSE", 2026, "Placed", "Greenridge Utilities", 5.88], ["STU0025", "CSE", 2025, "Placed", "Copperleaf Industries", 5.93], ["STU0026", "CSE", 2026, "Placed", "Meridian Cloud Co", 8.24], ["STU0027", "CSE", 2025, "Not Placed", "", null], ["STU0028", "CSE", 2026, "Placed", "Havenbyte Systems", 8.42], ["STU0029", "CSE", 2025, "Not Placed", "", null], ["STU0030", "CSE", 2026, "Placed", "BrightWave Technologies", 7.07], ["STU0031", "CSE", 2025, "Placed", "Nexalytics Global", 14.67], ["STU0032", "CSE", 2026, "Not Placed", "", null], ["STU0033", "CSE", 2025, "Placed", "Greenridge Utilities", 4.64], ["STU0034", "CSE", 2026, "Placed", "Meridian Cloud Co", 8.01], ["STU0035", "CSE", 2025, "Placed", "Verdant Software", 6.67], ["STU0036", "CSE", 2026, "Placed", "Copperleaf Industries", 5.32], ["STU0037", "CSE", 2025, "Placed", "Pinegrove Electricals", 3.99], ["STU0038", "CSE", 2026, "Placed", "Steadfast Engineering", 5.36], ["STU0039", "CSE", 2025, "Placed", "Lumen Field Systems", 5.51], ["STU0040", "CSE", 2026, "Placed", "Falcon Precision Tools", 4.16], ["STU0041", "CSE", 2025, "Placed", "Union Foundry Works", 4.37], ["STU0042", "CSE", 2026, "Placed", "Amberline Textiles", 4.35], ["STU0043", "CSE", 2025, "Placed", "Greenridge Utilities", 3.84], ["STU0044", "CSE", 2026, "Placed", "Northstar Manufacturing", 4.21], ["STU0045", "CSE", 2025, "Not Placed", "", null], ["STU0046", "CSE", 2026, "Placed", "Solstice Data Works", 8.18], ["STU0047", "CSE", 2025, "Placed", "Crestline Auto Components", 5.77], ["STU0048", "CSE", 2026, "Placed", "Quantera Labs", 14.37], ["STU0049", "CSE", 2025, "Not Placed", "", null], ["STU0050", "CSE", 2026, "Placed", "Greenridge Utilities", 4.35], ["STU0051", "CSE", 2025, "Placed", "Solstice Data Works", 8.44], ["STU0052", "CSE", 2026, "Placed", "Anchor Logistics Tech", 4.68], ["STU0053", "CSE", 2025, "Placed", "Amberline Textiles", 4.23], ["STU0054", "CSE", 2026, "Placed", "Amberline Textiles", 5.72], ["STU0055", "CSE", 2025, "Not Placed", "", null], ["STU0056", "CSE", 2026, "Placed", "BrightWave Technologies", 7.25], ["STU0057", "CSE", 2025, "Not Placed", "", null], ["STU0058", "CSE", 2026, "Placed", "Greenridge Utilities", 3.78], ["STU0059", "CSE", 2025, "Placed", "Crestline Auto Components", 4.64], ["STU0060", "CSE", 2026, "Placed", "Pinegrove Electricals", 4.27], ["STU0061", "AIDS", 2025, "Placed", "Crestline Auto Components", 5.77], ["STU0062", "AIDS", 2026, "Placed", "Havenbyte Systems", 9.4], ["STU0063", "AIDS", 2025, "Placed", "Quantera Labs", 17.41], ["STU0064", "AIDS", 2026, "Not Placed", "", null], ["STU0065", "AIDS", 2025, "Placed", "Union Foundry Works", 4.7], ["STU0066", "AIDS", 2026, "Placed", "Cobalt Robotics", 8.92], ["STU0067", "AIDS", 2025, "Placed", "Copperleaf Industries", 5.85], ["STU0068", "AIDS", 2026, "Placed", "Ironpeak Analytics", 8.74], ["STU0069", "AIDS", 2025, "Not Placed", "", null], ["STU0070", "AIDS", 2026, "Placed", "Crestline Auto Components", 3.98], ["STU0071", "AIDS", 2025, "Not Placed", "", null], ["STU0072", "AIDS", 2026, "Not Placed", "", null], ["STU0073", "AIDS", 2025, "Not Placed", "", null], ["STU0074", "AIDS", 2026, "Placed", "Cobalt Robotics", 9.6], ["STU0075", "AIDS", 2025, "Placed", "BrightWave Technologies", 8.17], ["STU0076", "AIDS", 2026, "Placed", "Union Foundry Works", 4.98], ["STU0077", "AIDS", 2025, "Placed", "Lumen Field Systems", 5.61], ["STU0078", "AIDS", 2026, "Not Placed", "", null], ["STU0079", "AIDS", 2025, "Placed", "Meridian Cloud Co", 6.81], ["STU0080", "AIDS", 2026, "Not Placed", "", null], ["STU0081", "AIDS", 2025, "Placed", "Union Foundry Works", 5.59], ["STU0082", "AIDS", 2026, "Placed", "Verdant Software", 9.74], ["STU0083", "AIDS", 2025, "Placed", "Orbitrix Systems", 13.19], ["STU0084", "AIDS", 2026, "Placed", "Lumen Field Systems", 3.88], ["STU0085", "AIDS", 2025, "Placed", "Union Foundry Works", 3.63], ["STU0086", "AIDS", 2026, "Placed", "Pinegrove Electricals", 4.83], ["STU0087", "AIDS", 2025, "Placed", "Quantera Labs", 17.11], ["STU0088", "AIDS", 2026, "Not Placed", "", null], ["STU0089", "AIDS", 2025, "Placed", "Verdant Software", 7.59], ["STU0090", "AIDS", 2026, "Placed", "Copperleaf Industries", 3.65], ["STU0091", "AIDS", 2025, "Not Placed", "", null], ["STU0092", "AIDS", 2026, "Placed", "Cobalt Robotics", 6.32], ["STU0093", "AIDS", 2025, "Not Placed", "", null], ["STU0094", "AIDS", 2026, "Placed", "Solstice Data Works", 8.97], ["STU0095", "AIDS", 2025, "Placed", "Northstar Manufacturing", 5.86], ["STU0096", "AIDS", 2026, "Placed", "Lumen Field Systems", 5.68], ["STU0097", "AIDS", 2025, "Placed", "Greenridge Utilities", 4.73], ["STU0098", "AIDS", 2026, "Placed", "Amberline Textiles", 5.91], ["STU0099", "AIDS", 2025, "Placed", "Orbitrix Systems", 11.76], ["STU0100", "AIDS", 2026, "Placed", "Pinegrove Electricals", 4.43], ["STU0101", "AIDS", 2025, "Placed", "Lumen Field Systems", 6.12], ["STU0102", "AIDS", 2026, "Placed", "Cobalt Robotics", 9.31], ["STU0103", "AIDS", 2025, "Placed", "Northstar Manufacturing", 5.32], ["STU0104", "AIDS", 2026, "Not Placed", "", null], ["STU0105", "AIDS", 2025, "Placed", "BrightWave Technologies", 8.74], ["STU0106", "AIDS", 2026, "Placed", "Northstar Manufacturing", 3.62], ["STU0107", "AIDS", 2025, "Placed", "Verdant Software", 6.49], ["STU0108", "AIDS", 2026, "Placed", "Crestline Auto Components", 3.9], ["STU0109", "AIDS", 2025, "Not Placed", "", null], ["STU0110", "AIDS", 2026, "Placed", "Union Foundry Works", 5.27], ["STU0111", "IT", 2025, "Placed", "Greenridge Utilities", 4.06], ["STU0112", "IT", 2026, "Placed", "Millbrook Hydraulics", 3.11], ["STU0113", "IT", 2025, "Placed", "Crestline Auto Components", 5.63], ["STU0114", "IT", 2026, "Placed", "Millbrook Hydraulics", 5.03], ["STU0115", "IT", 2025, "Placed", "Solstice Data Works", 9.14], ["STU0116", "IT", 2026, "Placed", "Amberline Textiles", 4.42], ["STU0117", "IT", 2025, "Not Placed", "", null], ["STU0118", "IT", 2026, "Placed", "Orbitrix Systems", 11.78], ["STU0119", "IT", 2025, "Placed", "Meridian Cloud Co", 7.34], ["STU0120", "IT", 2026, "Not Placed", "", null], ["STU0121", "IT", 2025, "Not Placed", "", null], ["STU0122", "IT", 2026, "Not Placed", "", null], ["STU0123", "IT", 2025, "Placed", "Copperleaf Industries", 3.59], ["STU0124", "IT", 2026, "Placed", "Nexalytics Global", 17.03], ["STU0125", "IT", 2025, "Placed", "Anchor Logistics Tech", 3.23], ["STU0126", "IT", 2026, "Placed", "Lumen Field Systems", 3.98], ["STU0127", "IT", 2025, "Placed", "Pinegrove Electricals", 5.88], ["STU0128", "IT", 2026, "Placed", "Solstice Data Works", 8.74], ["STU0129", "IT", 2025, "Not Placed", "", null], ["STU0130", "IT", 2026, "Placed", "Quantera Labs", 17.88], ["STU0131", "IT", 2025, "Placed", "Millbrook Hydraulics", 4.52], ["STU0132", "IT", 2026, "Placed", "Cobalt Robotics", 8.89], ["STU0133", "IT", 2025, "Placed", "Cobalt Robotics", 7.83], ["STU0134", "IT", 2026, "Not Placed", "", null], ["STU0135", "IT", 2025, "Not Placed", "", null], ["STU0136", "IT", 2026, "Placed", "Crestline Auto Components", 5.01], ["STU0137", "IT", 2025, "Placed", "Copperleaf Industries", 4.91], ["STU0138", "IT", 2026, "Placed", "Solstice Data Works", 6.01], ["STU0139", "IT", 2025, "Placed", "Union Foundry Works", 4.3], ["STU0140", "IT", 2026, "Not Placed", "", null], ["STU0141", "IT", 2025, "Placed", "Cobalt Robotics", 7.02], ["STU0142", "IT", 2026, "Placed", "Crestline Auto Components", 3.88], ["STU0143", "IT", 2025, "Placed", "Nexalytics Global", 13.73], ["STU0144", "IT", 2026, "Placed", "Cobalt Robotics", 7.6], ["STU0145", "IT", 2025, "Placed", "Union Foundry Works", 5.21], ["STU0146", "IT", 2026, "Placed", "Pinegrove Electricals", 4.93], ["STU0147", "IT", 2025, "Placed", "Verdant Software", 7.86], ["STU0148", "IT", 2026, "Not Placed", "", null], ["STU0149", "IT", 2025, "Not Placed", "", null], ["STU0150", "IT", 2026, "Placed", "Cobalt Robotics", 8.12], ["STU0151", "IT", 2025, "Placed", "Solstice Data Works", 7.73], ["STU0152", "IT", 2026, "Placed", "BrightWave Technologies", 7.54], ["STU0153", "IT", 2025, "Placed", "Pinegrove Electricals", 3.28], ["STU0154", "IT", 2026, "Placed", "Millbrook Hydraulics", 4.35], ["STU0155", "IT", 2025, "Not Placed", "", null], ["STU0156", "IT", 2026, "Placed", "Orbitrix Systems", 11.99], ["STU0157", "IT", 2025, "Placed", "Verdant Software", 7.15], ["STU0158", "IT", 2026, "Placed", "Ironpeak Analytics", 6.11], ["STU0159", "IT", 2025, "Not Placed", "", null], ["STU0160", "IT", 2026, "Placed", "Solstice Data Works", 6.49], ["STU0161", "ECE", 2025, "Placed", "Pinegrove Electricals", 4.45], ["STU0162", "ECE", 2026, "Not Placed", "", null], ["STU0163", "ECE", 2025, "Not Placed", "", null], ["STU0164", "ECE", 2026, "Not Placed", "", null], ["STU0165", "ECE", 2025, "Not Placed", "", null], ["STU0166", "ECE", 2026, "Placed", "Ironpeak Analytics", 6.08], ["STU0167", "ECE", 2025, "Not Placed", "", null], ["STU0168", "ECE", 2026, "Not Placed", "", null], ["STU0169", "ECE", 2025, "Placed", "Union Foundry Works", 3.19], ["STU0170", "ECE", 2026, "Not Placed", "", null], ["STU0171", "ECE", 2025, "Not Placed", "", null], ["STU0172", "ECE", 2026, "Not Placed", "", null], ["STU0173", "ECE", 2025, "Placed", "BrightWave Technologies", 9.72], ["STU0174", "ECE", 2026, "Placed", "Falcon Precision Tools", 5.83], ["STU0175", "ECE", 2025, "Not Placed", "", null], ["STU0176", "ECE", 2026, "Not Placed", "", null], ["STU0177", "ECE", 2025, "Not Placed", "", null], ["STU0178", "ECE", 2026, "Not Placed", "", null], ["STU0179", "ECE", 2025, "Not Placed", "", null], ["STU0180", "ECE", 2026, "Placed", "Meridian Cloud Co", 9.78], ["STU0181", "ECE", 2025, "Placed", "Havenbyte Systems", 7.48], ["STU0182", "ECE", 2026, "Placed", "Falcon Precision Tools", 5.43], ["STU0183", "ECE", 2025, "Placed", "Ironpeak Analytics", 7.41], ["STU0184", "ECE", 2026, "Not Placed", "", null], ["STU0185", "ECE", 2025, "Placed", "Millbrook Hydraulics", 5.63], ["STU0186", "ECE", 2026, "Placed", "Orbitrix Systems", 14.75], ["STU0187", "ECE", 2025, "Not Placed", "", null], ["STU0188", "ECE", 2026, "Placed", "Millbrook Hydraulics", 3.24], ["STU0189", "ECE", 2025, "Placed", "Northstar Manufacturing", 3.98], ["STU0190", "ECE", 2026, "Not Placed", "", null], ["STU0191", "ECE", 2025, "Not Placed", "", null], ["STU0192", "ECE", 2026, "Not Placed", "", null], ["STU0193", "ECE", 2025, "Not Placed", "", null], ["STU0194", "ECE", 2026, "Placed", "Meridian Cloud Co", 6.52], ["STU0195", "ECE", 2025, "Not Placed", "", null], ["STU0196", "ECE", 2026, "Not Placed", "", null], ["STU0197", "ECE", 2025, "Not Placed", "", null], ["STU0198", "ECE", 2026, "Not Placed", "", null], ["STU0199", "ECE", 2025, "Not Placed", "", null], ["STU0200", "ECE", 2026, "Not Placed", "", null], ["STU0201", "ECE", 2025, "Not Placed", "", null], ["STU0202", "ECE", 2026, "Placed", "Steadfast Engineering", 4.97], ["STU0203", "ECE", 2025, "Not Placed", "", null], ["STU0204", "ECE", 2026, "Not Placed", "", null], ["STU0205", "ECE", 2025, "Not Placed", "", null], ["STU0206", "MECH", 2025, "Not Placed", "", null], ["STU0207", "MECH", 2026, "Placed", "Lumen Field Systems", 2.89], ["STU0208", "MECH", 2025, "Not Placed", "", null], ["STU0209", "MECH", 2026, "Not Placed", "", null], ["STU0210", "MECH", 2025, "Not Placed", "", null], ["STU0211", "MECH", 2026, "Placed", "BrightWave Technologies", 6.01], ["STU0212", "MECH", 2025, "Placed", "Amberline Textiles", 4.87], ["STU0213", "MECH", 2026, "Not Placed", "", null], ["STU0214", "MECH", 2025, "Not Placed", "", null], ["STU0215", "MECH", 2026, "Not Placed", "", null], ["STU0216", "MECH", 2025, "Placed", "Anchor Logistics Tech", 4.72], ["STU0217", "MECH", 2026, "Not Placed", "", null], ["STU0218", "MECH", 2025, "Not Placed", "", null], ["STU0219", "MECH", 2026, "Not Placed", "", null], ["STU0220", "MECH", 2025, "Not Placed", "", null], ["STU0221", "MECH", 2026, "Not Placed", "", null], ["STU0222", "MECH", 2025, "Not Placed", "", null], ["STU0223", "MECH", 2026, "Placed", "Union Foundry Works", 3.49], ["STU0224", "MECH", 2025, "Not Placed", "", null], ["STU0225", "MECH", 2026, "Placed", "Amberline Textiles", 4.78], ["STU0226", "MECH", 2025, "Placed", "Steadfast Engineering", 3.73], ["STU0227", "MECH", 2026, "Not Placed", "", null], ["STU0228", "MECH", 2025, "Placed", "Havenbyte Systems", 5.67], ["STU0229", "MECH", 2026, "Not Placed", "", null], ["STU0230", "MECH", 2025, "Not Placed", "", null], ["STU0231", "MECH", 2026, "Not Placed", "", null], ["STU0232", "MECH", 2025, "Not Placed", "", null], ["STU0233", "MECH", 2026, "Not Placed", "", null], ["STU0234", "MECH", 2025, "Not Placed", "", null], ["STU0235", "MECH", 2026, "Placed", "Crestline Auto Components", 3.42], ["STU0236", "MECH", 2025, "Placed", "Millbrook Hydraulics", 3.68], ["STU0237", "MECH", 2026, "Not Placed", "", null], ["STU0238", "MECH", 2025, "Not Placed", "", null], ["STU0239", "MECH", 2026, "Placed", "Crestline Auto Components", 3.66], ["STU0240", "MECH", 2025, "Not Placed", "", null]];
+const SKILLS = [["STU0001", "Python", 63], ["STU0001", "SQL", 44], ["STU0001", "Power BI", 64], ["STU0001", "Machine Learning", 62], ["STU0001", "Java", 31], ["STU0001", "Communication", 54], ["STU0002", "Python", 61], ["STU0002", "SQL", 54], ["STU0002", "Power BI", 54], ["STU0002", "Machine Learning", 39], ["STU0002", "Java", 70], ["STU0002", "Communication", 77], ["STU0003", "Python", 60], ["STU0003", "SQL", 73], ["STU0003", "Power BI", 60], ["STU0003", "Machine Learning", 39], ["STU0003", "Java", 63], ["STU0003", "Communication", 57], ["STU0004", "Python", 71], ["STU0004", "SQL", 57], ["STU0004", "Power BI", 52], ["STU0004", "Machine Learning", 41], ["STU0004", "Java", 75], ["STU0004", "Communication", 66], ["STU0005", "Python", 53], ["STU0005", "SQL", 53], ["STU0005", "Power BI", 61], ["STU0005", "Machine Learning", 55], ["STU0005", "Java", 64], ["STU0005", "Communication", 73], ["STU0006", "Python", 89], ["STU0006", "SQL", 53], ["STU0006", "Power BI", 47], ["STU0006", "Machine Learning", 39], ["STU0006", "Java", 67], ["STU0006", "Communication", 80], ["STU0007", "Python", 57], ["STU0007", "SQL", 47], ["STU0007", "Power BI", 43], ["STU0007", "Machine Learning", 58], ["STU0007", "Java", 68], ["STU0007", "Communication", 74], ["STU0008", "Python", 50], ["STU0008", "SQL", 61], ["STU0008", "Power BI", 56], ["STU0008", "Machine Learning", 53], ["STU0008", "Java", 70], ["STU0008", "Communication", 70], ["STU0009", "Python", 69], ["STU0009", "SQL", 59], ["STU0009", "Power BI", 58], ["STU0009", "Machine Learning", 58], ["STU0009", "Java", 38], ["STU0009", "Communication", 64], ["STU0010", "Python", 52], ["STU0010", "SQL", 50], ["STU0010", "Power BI", 50], ["STU0010", "Machine Learning", 69], ["STU0010", "Java", 46], ["STU0010", "Communication", 79], ["STU0011", "Python", 35], ["STU0011", "SQL", 54], ["STU0011", "Power BI", 56], ["STU0011", "Machine Learning", 58], ["STU0011", "Java", 68], ["STU0011", "Communication", 77], ["STU0012", "Python", 54], ["STU0012", "SQL", 52], ["STU0012", "Power BI", 65], ["STU0012", "Machine Learning", 48], ["STU0012", "Java", 40], ["STU0012", "Communication", 56], ["STU0013", "Python", 46], ["STU0013", "SQL", 64], ["STU0013", "Power BI", 56], ["STU0013", "Machine Learning", 59], ["STU0013", "Java", 52], ["STU0013", "Communication", 70], ["STU0014", "Python", 68], ["STU0014", "SQL", 54], ["STU0014", "Power BI", 60], ["STU0014", "Machine Learning", 41], ["STU0014", "Java", 53], ["STU0014", "Communication", 64], ["STU0015", "Python", 42], ["STU0015", "SQL", 64], ["STU0015", "Power BI", 48], ["STU0015", "Machine Learning", 50], ["STU0015", "Java", 65], ["STU0015", "Communication", 73], ["STU0016", "Python", 68], ["STU0016", "SQL", 57], ["STU0016", "Power BI", 48], ["STU0016", "Machine Learning", 49], ["STU0016", "Java", 34], ["STU0016", "Communication", 52], ["STU0017", "Python", 40], ["STU0017", "SQL", 45], ["STU0017", "Power BI", 59], ["STU0017", "Machine Learning", 38], ["STU0017", "Java", 53], ["STU0017", "Communication", 82], ["STU0018", "Python", 54], ["STU0018", "SQL", 68], ["STU0018", "Power BI", 42], ["STU0018", "Machine Learning", 47], ["STU0018", "Java", 45], ["STU0018", "Communication", 64], ["STU0019", "Python", 71], ["STU0019", "SQL", 36], ["STU0019", "Power BI", 60], ["STU0019", "Machine Learning", 53], ["STU0019", "Java", 50], ["STU0019", "Communication", 52], ["STU0020", "Python", 60], ["STU0020", "SQL", 51], ["STU0020", "Power BI", 57], ["STU0020", "Machine Learning", 50], ["STU0020", "Java", 80], ["STU0020", "Communication", 65], ["STU0021", "Python", 45], ["STU0021", "SQL", 60], ["STU0021", "Power BI", 57], ["STU0021", "Machine Learning", 68], ["STU0021", "Java", 70], ["STU0021", "Communication", 72], ["STU0022", "Python", 79], ["STU0022", "SQL", 43], ["STU0022", "Power BI", 46], ["STU0022", "Machine Learning", 38], ["STU0022", "Java", 53], ["STU0022", "Communication", 53], ["STU0023", "Python", 68], ["STU0023", "SQL", 55], ["STU0023", "Power BI", 35], ["STU0023", "Machine Learning", 37], ["STU0023", "Java", 62], ["STU0023", "Communication", 77], ["STU0024", "Python", 87], ["STU0024", "SQL", 96], ["STU0024", "Power BI", 59], ["STU0024", "Machine Learning", 37], ["STU0024", "Java", 28], ["STU0024", "Communication", 71], ["STU0025", "Python", 48], ["STU0025", "SQL", 53], ["STU0025", "Power BI", 46], ["STU0025", "Machine Learning", 48], ["STU0025", "Java", 73], ["STU0025", "Communication", 70], ["STU0026", "Python", 57], ["STU0026", "SQL", 45], ["STU0026", "Power BI", 32], ["STU0026", "Machine Learning", 44], ["STU0026", "Java", 57], ["STU0026", "Communication", 87], ["STU0027", "Python", 61], ["STU0027", "SQL", 71], ["STU0027", "Power BI", 48], ["STU0027", "Machine Learning", 35], ["STU0027", "Java", 44], ["STU0027", "Communication", 60], ["STU0028", "Python", 89], ["STU0028", "SQL", 47], ["STU0028", "Power BI", 65], ["STU0028", "Machine Learning", 38], ["STU0028", "Java", 71], ["STU0028", "Communication", 72], ["STU0029", "Python", 57], ["STU0029", "SQL", 57], ["STU0029", "Power BI", 45], ["STU0029", "Machine Learning", 56], ["STU0029", "Java", 52], ["STU0029", "Communication", 55], ["STU0030", "Python", 41], ["STU0030", "SQL", 60], ["STU0030", "Power BI", 75], ["STU0030", "Machine Learning", 52], ["STU0030", "Java", 56], ["STU0030", "Communication", 71], ["STU0031", "Python", 77], ["STU0031", "SQL", 61], ["STU0031", "Power BI", 49], ["STU0031", "Machine Learning", 64], ["STU0031", "Java", 64], ["STU0031", "Communication", 85], ["STU0032", "Python", 62], ["STU0032", "SQL", 42], ["STU0032", "Power BI", 36], ["STU0032", "Machine Learning", 71], ["STU0032", "Java", 82], ["STU0032", "Communication", 66], ["STU0033", "Python", 54], ["STU0033", "SQL", 77], ["STU0033", "Power BI", 40], ["STU0033", "Machine Learning", 38], ["STU0033", "Java", 67], ["STU0033", "Communication", 64], ["STU0034", "Python", 59], ["STU0034", "SQL", 56], ["STU0034", "Power BI", 58], ["STU0034", "Machine Learning", 68], ["STU0034", "Java", 59], ["STU0034", "Communication", 75], ["STU0035", "Python", 30], ["STU0035", "SQL", 57], ["STU0035", "Power BI", 43], ["STU0035", "Machine Learning", 34], ["STU0035", "Java", 46], ["STU0035", "Communication", 64], ["STU0036", "Python", 72], ["STU0036", "SQL", 41], ["STU0036", "Power BI", 54], ["STU0036", "Machine Learning", 44], ["STU0036", "Java", 53], ["STU0036", "Communication", 79], ["STU0037", "Python", 67], ["STU0037", "SQL", 75], ["STU0037", "Power BI", 52], ["STU0037", "Machine Learning", 41], ["STU0037", "Java", 55], ["STU0037", "Communication", 71], ["STU0038", "Python", 61], ["STU0038", "SQL", 44], ["STU0038", "Power BI", 55], ["STU0038", "Machine Learning", 53], ["STU0038", "Java", 93], ["STU0038", "Communication", 89], ["STU0039", "Python", 47], ["STU0039", "SQL", 54], ["STU0039", "Power BI", 35], ["STU0039", "Machine Learning", 42], ["STU0039", "Java", 62], ["STU0039", "Communication", 81], ["STU0040", "Python", 49], ["STU0040", "SQL", 49], ["STU0040", "Power BI", 26], ["STU0040", "Machine Learning", 48], ["STU0040", "Java", 43], ["STU0040", "Communication", 62], ["STU0041", "Python", 47], ["STU0041", "SQL", 57], ["STU0041", "Power BI", 31], ["STU0041", "Machine Learning", 31], ["STU0041", "Java", 88], ["STU0041", "Communication", 54], ["STU0042", "Python", 44], ["STU0042", "SQL", 82], ["STU0042", "Power BI", 92], ["STU0042", "Machine Learning", 35], ["STU0042", "Java", 53], ["STU0042", "Communication", 72], ["STU0043", "Python", 83], ["STU0043", "SQL", 45], ["STU0043", "Power BI", 51], ["STU0043", "Machine Learning", 60], ["STU0043", "Java", 64], ["STU0043", "Communication", 64], ["STU0044", "Python", 57], ["STU0044", "SQL", 40], ["STU0044", "Power BI", 51], ["STU0044", "Machine Learning", 47], ["STU0044", "Java", 61], ["STU0044", "Communication", 62], ["STU0045", "Python", 66], ["STU0045", "SQL", 71], ["STU0045", "Power BI", 56], ["STU0045", "Machine Learning", 55], ["STU0045", "Java", 59], ["STU0045", "Communication", 68], ["STU0046", "Python", 49], ["STU0046", "SQL", 62], ["STU0046", "Power BI", 53], ["STU0046", "Machine Learning", 77], ["STU0046", "Java", 80], ["STU0046", "Communication", 72], ["STU0047", "Python", 48], ["STU0047", "SQL", 44], ["STU0047", "Power BI", 69], ["STU0047", "Machine Learning", 53], ["STU0047", "Java", 65], ["STU0047", "Communication", 49], ["STU0048", "Python", 72], ["STU0048", "SQL", 64], ["STU0048", "Power BI", 40], ["STU0048", "Machine Learning", 44], ["STU0048", "Java", 62], ["STU0048", "Communication", 69], ["STU0049", "Python", 55], ["STU0049", "SQL", 57], ["STU0049", "Power BI", 51], ["STU0049", "Machine Learning", 52], ["STU0049", "Java", 79], ["STU0049", "Communication", 40], ["STU0050", "Python", 56], ["STU0050", "SQL", 60], ["STU0050", "Power BI", 58], ["STU0050", "Machine Learning", 45], ["STU0050", "Java", 33], ["STU0050", "Communication", 72], ["STU0051", "Python", 83], ["STU0051", "SQL", 38], ["STU0051", "Power BI", 65], ["STU0051", "Machine Learning", 46], ["STU0051", "Java", 57], ["STU0051", "Communication", 56], ["STU0052", "Python", 54], ["STU0052", "SQL", 75], ["STU0052", "Power BI", 62], ["STU0052", "Machine Learning", 73], ["STU0052", "Java", 74], ["STU0052", "Communication", 73], ["STU0053", "Python", 83], ["STU0053", "SQL", 64], ["STU0053", "Power BI", 65], ["STU0053", "Machine Learning", 46], ["STU0053", "Java", 59], ["STU0053", "Communication", 60], ["STU0054", "Python", 73], ["STU0054", "SQL", 43], ["STU0054", "Power BI", 64], ["STU0054", "Machine Learning", 48], ["STU0054", "Java", 74], ["STU0054", "Communication", 76], ["STU0055", "Python", 84], ["STU0055", "SQL", 68], ["STU0055", "Power BI", 34], ["STU0055", "Machine Learning", 49], ["STU0055", "Java", 42], ["STU0055", "Communication", 62], ["STU0056", "Python", 80], ["STU0056", "SQL", 66], ["STU0056", "Power BI", 45], ["STU0056", "Machine Learning", 37], ["STU0056", "Java", 58], ["STU0056", "Communication", 55], ["STU0057", "Python", 50], ["STU0057", "SQL", 62], ["STU0057", "Power BI", 69], ["STU0057", "Machine Learning", 58], ["STU0057", "Java", 26], ["STU0057", "Communication", 71], ["STU0058", "Python", 60], ["STU0058", "SQL", 63], ["STU0058", "Power BI", 75], ["STU0058", "Machine Learning", 23], ["STU0058", "Java", 50], ["STU0058", "Communication", 74], ["STU0059", "Python", 37], ["STU0059", "SQL", 77], ["STU0059", "Power BI", 59], ["STU0059", "Machine Learning", 61], ["STU0059", "Java", 50], ["STU0059", "Communication", 77], ["STU0060", "Python", 74], ["STU0060", "SQL", 61], ["STU0060", "Power BI", 57], ["STU0060", "Machine Learning", 54], ["STU0060", "Java", 46], ["STU0060", "Communication", 66], ["STU0061", "Python", 61], ["STU0061", "SQL", 67], ["STU0061", "Power BI", 71], ["STU0061", "Machine Learning", 40], ["STU0061", "Java", 60], ["STU0061", "Communication", 84], ["STU0062", "Python", 53], ["STU0062", "SQL", 51], ["STU0062", "Power BI", 61], ["STU0062", "Machine Learning", 65], ["STU0062", "Java", 62], ["STU0062", "Communication", 83], ["STU0063", "Python", 75], ["STU0063", "SQL", 73], ["STU0063", "Power BI", 65], ["STU0063", "Machine Learning", 84], ["STU0063", "Java", 59], ["STU0063", "Communication", 46], ["STU0064", "Python", 85], ["STU0064", "SQL", 56], ["STU0064", "Power BI", 59], ["STU0064", "Machine Learning", 71], ["STU0064", "Java", 40], ["STU0064", "Communication", 54], ["STU0065", "Python", 41], ["STU0065", "SQL", 52], ["STU0065", "Power BI", 64], ["STU0065", "Machine Learning", 61], ["STU0065", "Java", 66], ["STU0065", "Communication", 52], ["STU0066", "Python", 31], ["STU0066", "SQL", 63], ["STU0066", "Power BI", 52], ["STU0066", "Machine Learning", 60], ["STU0066", "Java", 72], ["STU0066", "Communication", 70], ["STU0067", "Python", 74], ["STU0067", "SQL", 65], ["STU0067", "Power BI", 65], ["STU0067", "Machine Learning", 45], ["STU0067", "Java", 59], ["STU0067", "Communication", 70], ["STU0068", "Python", 74], ["STU0068", "SQL", 57], ["STU0068", "Power BI", 65], ["STU0068", "Machine Learning", 51], ["STU0068", "Java", 60], ["STU0068", "Communication", 77], ["STU0069", "Python", 35], ["STU0069", "SQL", 45], ["STU0069", "Power BI", 39], ["STU0069", "Machine Learning", 24], ["STU0069", "Java", 53], ["STU0069", "Communication", 76], ["STU0070", "Python", 59], ["STU0070", "SQL", 65], ["STU0070", "Power BI", 72], ["STU0070", "Machine Learning", 71], ["STU0070", "Java", 61], ["STU0070", "Communication", 83], ["STU0071", "Python", 64], ["STU0071", "SQL", 51], ["STU0071", "Power BI", 50], ["STU0071", "Machine Learning", 35], ["STU0071", "Java", 50], ["STU0071", "Communication", 64], ["STU0072", "Python", 74], ["STU0072", "SQL", 84], ["STU0072", "Power BI", 40], ["STU0072", "Machine Learning", 59], ["STU0072", "Java", 47], ["STU0072", "Communication", 73], ["STU0073", "Python", 61], ["STU0073", "SQL", 38], ["STU0073", "Power BI", 70], ["STU0073", "Machine Learning", 46], ["STU0073", "Java", 55], ["STU0073", "Communication", 56], ["STU0074", "Python", 54], ["STU0074", "SQL", 68], ["STU0074", "Power BI", 56], ["STU0074", "Machine Learning", 58], ["STU0074", "Java", 67], ["STU0074", "Communication", 83], ["STU0075", "Python", 58], ["STU0075", "SQL", 43], ["STU0075", "Power BI", 72], ["STU0075", "Machine Learning", 50], ["STU0075", "Java", 78], ["STU0075", "Communication", 72], ["STU0076", "Python", 61], ["STU0076", "SQL", 67], ["STU0076", "Power BI", 83], ["STU0076", "Machine Learning", 81], ["STU0076", "Java", 63], ["STU0076", "Communication", 70], ["STU0077", "Python", 78], ["STU0077", "SQL", 51], ["STU0077", "Power BI", 62], ["STU0077", "Machine Learning", 54], ["STU0077", "Java", 66], ["STU0077", "Communication", 59], ["STU0078", "Python", 41], ["STU0078", "SQL", 35], ["STU0078", "Power BI", 43], ["STU0078", "Machine Learning", 48], ["STU0078", "Java", 58], ["STU0078", "Communication", 89], ["STU0079", "Python", 78], ["STU0079", "SQL", 49], ["STU0079", "Power BI", 63], ["STU0079", "Machine Learning", 49], ["STU0079", "Java", 58], ["STU0079", "Communication", 70], ["STU0080", "Python", 72], ["STU0080", "SQL", 58], ["STU0080", "Power BI", 72], ["STU0080", "Machine Learning", 39], ["STU0080", "Java", 62], ["STU0080", "Communication", 97], ["STU0081", "Python", 66], ["STU0081", "SQL", 81], ["STU0081", "Power BI", 59], ["STU0081", "Machine Learning", 62], ["STU0081", "Java", 61], ["STU0081", "Communication", 66], ["STU0082", "Python", 52], ["STU0082", "SQL", 68], ["STU0082", "Power BI", 47], ["STU0082", "Machine Learning", 63], ["STU0082", "Java", 77], ["STU0082", "Communication", 72], ["STU0083", "Python", 59], ["STU0083", "SQL", 68], ["STU0083", "Power BI", 54], ["STU0083", "Machine Learning", 66], ["STU0083", "Java", 36], ["STU0083", "Communication", 64], ["STU0084", "Python", 35], ["STU0084", "SQL", 43], ["STU0084", "Power BI", 76], ["STU0084", "Machine Learning", 66], ["STU0084", "Java", 52], ["STU0084", "Communication", 51], ["STU0085", "Python", 21], ["STU0085", "SQL", 55], ["STU0085", "Power BI", 89], ["STU0085", "Machine Learning", 60], ["STU0085", "Java", 54], ["STU0085", "Communication", 73], ["STU0086", "Python", 41], ["STU0086", "SQL", 58], ["STU0086", "Power BI", 59], ["STU0086", "Machine Learning", 53], ["STU0086", "Java", 73], ["STU0086", "Communication", 72], ["STU0087", "Python", 72], ["STU0087", "SQL", 53], ["STU0087", "Power BI", 70], ["STU0087", "Machine Learning", 75], ["STU0087", "Java", 48], ["STU0087", "Communication", 58], ["STU0088", "Python", 82], ["STU0088", "SQL", 60], ["STU0088", "Power BI", 76], ["STU0088", "Machine Learning", 48], ["STU0088", "Java", 82], ["STU0088", "Communication", 69], ["STU0089", "Python", 67], ["STU0089", "SQL", 82], ["STU0089", "Power BI", 53], ["STU0089", "Machine Learning", 42], ["STU0089", "Java", 56], ["STU0089", "Communication", 73], ["STU0090", "Python", 41], ["STU0090", "SQL", 70], ["STU0090", "Power BI", 51], ["STU0090", "Machine Learning", 69], ["STU0090", "Java", 28], ["STU0090", "Communication", 59], ["STU0091", "Python", 39], ["STU0091", "SQL", 51], ["STU0091", "Power BI", 61], ["STU0091", "Machine Learning", 52], ["STU0091", "Java", 58], ["STU0091", "Communication", 66], ["STU0092", "Python", 66], ["STU0092", "SQL", 49], ["STU0092", "Power BI", 67], ["STU0092", "Machine Learning", 63], ["STU0092", "Java", 67], ["STU0092", "Communication", 74], ["STU0093", "Python", 67], ["STU0093", "SQL", 88], ["STU0093", "Power BI", 57], ["STU0093", "Machine Learning", 50], ["STU0093", "Java", 51], ["STU0093", "Communication", 57], ["STU0094", "Python", 46], ["STU0094", "SQL", 50], ["STU0094", "Power BI", 57], ["STU0094", "Machine Learning", 58], ["STU0094", "Java", 63], ["STU0094", "Communication", 60], ["STU0095", "Python", 76], ["STU0095", "SQL", 72], ["STU0095", "Power BI", 56], ["STU0095", "Machine Learning", 46], ["STU0095", "Java", 70], ["STU0095", "Communication", 70], ["STU0096", "Python", 43], ["STU0096", "SQL", 61], ["STU0096", "Power BI", 61], ["STU0096", "Machine Learning", 42], ["STU0096", "Java", 65], ["STU0096", "Communication", 52], ["STU0097", "Python", 82], ["STU0097", "SQL", 78], ["STU0097", "Power BI", 55], ["STU0097", "Machine Learning", 59], ["STU0097", "Java", 28], ["STU0097", "Communication", 55], ["STU0098", "Python", 59], ["STU0098", "SQL", 48], ["STU0098", "Power BI", 67], ["STU0098", "Machine Learning", 80], ["STU0098", "Java", 46], ["STU0098", "Communication", 59], ["STU0099", "Python", 66], ["STU0099", "SQL", 83], ["STU0099", "Power BI", 42], ["STU0099", "Machine Learning", 57], ["STU0099", "Java", 87], ["STU0099", "Communication", 50], ["STU0100", "Python", 45], ["STU0100", "SQL", 56], ["STU0100", "Power BI", 51], ["STU0100", "Machine Learning", 65], ["STU0100", "Java", 65], ["STU0100", "Communication", 48], ["STU0101", "Python", 70], ["STU0101", "SQL", 54], ["STU0101", "Power BI", 75], ["STU0101", "Machine Learning", 46], ["STU0101", "Java", 53], ["STU0101", "Communication", 74], ["STU0102", "Python", 74], ["STU0102", "SQL", 68], ["STU0102", "Power BI", 36], ["STU0102", "Machine Learning", 61], ["STU0102", "Java", 48], ["STU0102", "Communication", 71], ["STU0103", "Python", 43], ["STU0103", "SQL", 68], ["STU0103", "Power BI", 48], ["STU0103", "Machine Learning", 37], ["STU0103", "Java", 72], ["STU0103", "Communication", 71], ["STU0104", "Python", 54], ["STU0104", "SQL", 81], ["STU0104", "Power BI", 52], ["STU0104", "Machine Learning", 54], ["STU0104", "Java", 66], ["STU0104", "Communication", 61], ["STU0105", "Python", 70], ["STU0105", "SQL", 55], ["STU0105", "Power BI", 53], ["STU0105", "Machine Learning", 72], ["STU0105", "Java", 47], ["STU0105", "Communication", 41], ["STU0106", "Python", 86], ["STU0106", "SQL", 95], ["STU0106", "Power BI", 53], ["STU0106", "Machine Learning", 29], ["STU0106", "Java", 58], ["STU0106", "Communication", 65], ["STU0107", "Python", 60], ["STU0107", "SQL", 48], ["STU0107", "Power BI", 66], ["STU0107", "Machine Learning", 61], ["STU0107", "Java", 41], ["STU0107", "Communication", 76], ["STU0108", "Python", 92], ["STU0108", "SQL", 64], ["STU0108", "Power BI", 54], ["STU0108", "Machine Learning", 52], ["STU0108", "Java", 71], ["STU0108", "Communication", 49], ["STU0109", "Python", 65], ["STU0109", "SQL", 57], ["STU0109", "Power BI", 82], ["STU0109", "Machine Learning", 52], ["STU0109", "Java", 85], ["STU0109", "Communication", 56], ["STU0110", "Python", 71], ["STU0110", "SQL", 66], ["STU0110", "Power BI", 47], ["STU0110", "Machine Learning", 56], ["STU0110", "Java", 79], ["STU0110", "Communication", 64], ["STU0111", "Python", 31], ["STU0111", "SQL", 54], ["STU0111", "Power BI", 38], ["STU0111", "Machine Learning", 42], ["STU0111", "Java", 53], ["STU0111", "Communication", 49], ["STU0112", "Python", 32], ["STU0112", "SQL", 60], ["STU0112", "Power BI", 43], ["STU0112", "Machine Learning", 13], ["STU0112", "Java", 65], ["STU0112", "Communication", 71], ["STU0113", "Python", 45], ["STU0113", "SQL", 37], ["STU0113", "Power BI", 61], ["STU0113", "Machine Learning", 51], ["STU0113", "Java", 87], ["STU0113", "Communication", 73], ["STU0114", "Python", 60], ["STU0114", "SQL", 52], ["STU0114", "Power BI", 61], ["STU0114", "Machine Learning", 54], ["STU0114", "Java", 72], ["STU0114", "Communication", 62], ["STU0115", "Python", 49], ["STU0115", "SQL", 48], ["STU0115", "Power BI", 60], ["STU0115", "Machine Learning", 65], ["STU0115", "Java", 48], ["STU0115", "Communication", 63], ["STU0116", "Python", 59], ["STU0116", "SQL", 51], ["STU0116", "Power BI", 62], ["STU0116", "Machine Learning", 17], ["STU0116", "Java", 42], ["STU0116", "Communication", 59], ["STU0117", "Python", 23], ["STU0117", "SQL", 41], ["STU0117", "Power BI", 38], ["STU0117", "Machine Learning", 43], ["STU0117", "Java", 70], ["STU0117", "Communication", 65], ["STU0118", "Python", 41], ["STU0118", "SQL", 53], ["STU0118", "Power BI", 64], ["STU0118", "Machine Learning", 33], ["STU0118", "Java", 41], ["STU0118", "Communication", 74], ["STU0119", "Python", 52], ["STU0119", "SQL", 62], ["STU0119", "Power BI", 50], ["STU0119", "Machine Learning", 55], ["STU0119", "Java", 40], ["STU0119", "Communication", 68], ["STU0120", "Python", 52], ["STU0120", "SQL", 38], ["STU0120", "Power BI", 30], ["STU0120", "Machine Learning", 55], ["STU0120", "Java", 49], ["STU0120", "Communication", 57], ["STU0121", "Python", 54], ["STU0121", "SQL", 69], ["STU0121", "Power BI", 20], ["STU0121", "Machine Learning", 27], ["STU0121", "Java", 41], ["STU0121", "Communication", 84], ["STU0122", "Python", 59], ["STU0122", "SQL", 64], ["STU0122", "Power BI", 35], ["STU0122", "Machine Learning", 31], ["STU0122", "Java", 60], ["STU0122", "Communication", 69], ["STU0123", "Python", 63], ["STU0123", "SQL", 52], ["STU0123", "Power BI", 54], ["STU0123", "Machine Learning", 48], ["STU0123", "Java", 65], ["STU0123", "Communication", 77], ["STU0124", "Python", 32], ["STU0124", "SQL", 25], ["STU0124", "Power BI", 63], ["STU0124", "Machine Learning", 61], ["STU0124", "Java", 40], ["STU0124", "Communication", 48], ["STU0125", "Python", 56], ["STU0125", "SQL", 66], ["STU0125", "Power BI", 73], ["STU0125", "Machine Learning", 53], ["STU0125", "Java", 49], ["STU0125", "Communication", 58], ["STU0126", "Python", 55], ["STU0126", "SQL", 50], ["STU0126", "Power BI", 37], ["STU0126", "Machine Learning", 73], ["STU0126", "Java", 79], ["STU0126", "Communication", 80], ["STU0127", "Python", 42], ["STU0127", "SQL", 65], ["STU0127", "Power BI", 58], ["STU0127", "Machine Learning", 52], ["STU0127", "Java", 71], ["STU0127", "Communication", 75], ["STU0128", "Python", 65], ["STU0128", "SQL", 62], ["STU0128", "Power BI", 54], ["STU0128", "Machine Learning", 23], ["STU0128", "Java", 55], ["STU0128", "Communication", 62], ["STU0129", "Python", 37], ["STU0129", "SQL", 76], ["STU0129", "Power BI", 72], ["STU0129", "Machine Learning", 64], ["STU0129", "Java", 58], ["STU0129", "Communication", 83], ["STU0130", "Python", 55], ["STU0130", "SQL", 57], ["STU0130", "Power BI", 36], ["STU0130", "Machine Learning", 51], ["STU0130", "Java", 55], ["STU0130", "Communication", 54], ["STU0131", "Python", 54], ["STU0131", "SQL", 53], ["STU0131", "Power BI", 73], ["STU0131", "Machine Learning", 58], ["STU0131", "Java", 54], ["STU0131", "Communication", 71], ["STU0132", "Python", 56], ["STU0132", "SQL", 51], ["STU0132", "Power BI", 36], ["STU0132", "Machine Learning", 44], ["STU0132", "Java", 44], ["STU0132", "Communication", 54], ["STU0133", "Python", 62], ["STU0133", "SQL", 59], ["STU0133", "Power BI", 27], ["STU0133", "Machine Learning", 44], ["STU0133", "Java", 68], ["STU0133", "Communication", 80], ["STU0134", "Python", 69], ["STU0134", "SQL", 55], ["STU0134", "Power BI", 39], ["STU0134", "Machine Learning", 32], ["STU0134", "Java", 59], ["STU0134", "Communication", 72], ["STU0135", "Python", 73], ["STU0135", "SQL", 68], ["STU0135", "Power BI", 48], ["STU0135", "Machine Learning", 30], ["STU0135", "Java", 50], ["STU0135", "Communication", 70], ["STU0136", "Python", 52], ["STU0136", "SQL", 46], ["STU0136", "Power BI", 53], ["STU0136", "Machine Learning", 39], ["STU0136", "Java", 45], ["STU0136", "Communication", 71], ["STU0137", "Python", 49], ["STU0137", "SQL", 57], ["STU0137", "Power BI", 54], ["STU0137", "Machine Learning", 31], ["STU0137", "Java", 47], ["STU0137", "Communication", 84], ["STU0138", "Python", 39], ["STU0138", "SQL", 26], ["STU0138", "Power BI", 26], ["STU0138", "Machine Learning", 46], ["STU0138", "Java", 54], ["STU0138", "Communication", 67], ["STU0139", "Python", 72], ["STU0139", "SQL", 19], ["STU0139", "Power BI", 55], ["STU0139", "Machine Learning", 66], ["STU0139", "Java", 38], ["STU0139", "Communication", 64], ["STU0140", "Python", 44], ["STU0140", "SQL", 42], ["STU0140", "Power BI", 46], ["STU0140", "Machine Learning", 65], ["STU0140", "Java", 80], ["STU0140", "Communication", 64], ["STU0141", "Python", 82], ["STU0141", "SQL", 54], ["STU0141", "Power BI", 73], ["STU0141", "Machine Learning", 45], ["STU0141", "Java", 56], ["STU0141", "Communication", 72], ["STU0142", "Python", 98], ["STU0142", "SQL", 65], ["STU0142", "Power BI", 41], ["STU0142", "Machine Learning", 59], ["STU0142", "Java", 49], ["STU0142", "Communication", 63], ["STU0143", "Python", 68], ["STU0143", "SQL", 54], ["STU0143", "Power BI", 54], ["STU0143", "Machine Learning", 46], ["STU0143", "Java", 59], ["STU0143", "Communication", 73], ["STU0144", "Python", 28], ["STU0144", "SQL", 63], ["STU0144", "Power BI", 37], ["STU0144", "Machine Learning", 27], ["STU0144", "Java", 53], ["STU0144", "Communication", 69], ["STU0145", "Python", 45], ["STU0145", "SQL", 65], ["STU0145", "Power BI", 33], ["STU0145", "Machine Learning", 41], ["STU0145", "Java", 46], ["STU0145", "Communication", 67], ["STU0146", "Python", 59], ["STU0146", "SQL", 41], ["STU0146", "Power BI", 59], ["STU0146", "Machine Learning", 47], ["STU0146", "Java", 28], ["STU0146", "Communication", 46], ["STU0147", "Python", 55], ["STU0147", "SQL", 51], ["STU0147", "Power BI", 49], ["STU0147", "Machine Learning", 46], ["STU0147", "Java", 57], ["STU0147", "Communication", 78], ["STU0148", "Python", 39], ["STU0148", "SQL", 39], ["STU0148", "Power BI", 36], ["STU0148", "Machine Learning", 50], ["STU0148", "Java", 71], ["STU0148", "Communication", 63], ["STU0149", "Python", 20], ["STU0149", "SQL", 32], ["STU0149", "Power BI", 39], ["STU0149", "Machine Learning", 39], ["STU0149", "Java", 48], ["STU0149", "Communication", 68], ["STU0150", "Python", 51], ["STU0150", "SQL", 68], ["STU0150", "Power BI", 41], ["STU0150", "Machine Learning", 35], ["STU0150", "Java", 61], ["STU0150", "Communication", 51], ["STU0151", "Python", 60], ["STU0151", "SQL", 55], ["STU0151", "Power BI", 48], ["STU0151", "Machine Learning", 67], ["STU0151", "Java", 45], ["STU0151", "Communication", 91], ["STU0152", "Python", 52], ["STU0152", "SQL", 37], ["STU0152", "Power BI", 51], ["STU0152", "Machine Learning", 32], ["STU0152", "Java", 43], ["STU0152", "Communication", 72], ["STU0153", "Python", 63], ["STU0153", "SQL", 46], ["STU0153", "Power BI", 63], ["STU0153", "Machine Learning", 61], ["STU0153", "Java", 74], ["STU0153", "Communication", 74], ["STU0154", "Python", 74], ["STU0154", "SQL", 30], ["STU0154", "Power BI", 46], ["STU0154", "Machine Learning", 35], ["STU0154", "Java", 56], ["STU0154", "Communication", 62], ["STU0155", "Python", 53], ["STU0155", "SQL", 78], ["STU0155", "Power BI", 48], ["STU0155", "Machine Learning", 51], ["STU0155", "Java", 51], ["STU0155", "Communication", 69], ["STU0156", "Python", 55], ["STU0156", "SQL", 60], ["STU0156", "Power BI", 65], ["STU0156", "Machine Learning", 67], ["STU0156", "Java", 58], ["STU0156", "Communication", 74], ["STU0157", "Python", 39], ["STU0157", "SQL", 53], ["STU0157", "Power BI", 62], ["STU0157", "Machine Learning", 57], ["STU0157", "Java", 57], ["STU0157", "Communication", 78], ["STU0158", "Python", 62], ["STU0158", "SQL", 70], ["STU0158", "Power BI", 54], ["STU0158", "Machine Learning", 41], ["STU0158", "Java", 59], ["STU0158", "Communication", 36], ["STU0159", "Python", 60], ["STU0159", "SQL", 7], ["STU0159", "Power BI", 28], ["STU0159", "Machine Learning", 52], ["STU0159", "Java", 61], ["STU0159", "Communication", 55], ["STU0160", "Python", 45], ["STU0160", "SQL", 72], ["STU0160", "Power BI", 44], ["STU0160", "Machine Learning", 75], ["STU0160", "Java", 54], ["STU0160", "Communication", 72], ["STU0161", "Python", 61], ["STU0161", "SQL", 39], ["STU0161", "Power BI", 20], ["STU0161", "Machine Learning", 28], ["STU0161", "Java", 37], ["STU0161", "Communication", 53], ["STU0162", "Python", 34], ["STU0162", "SQL", 27], ["STU0162", "Power BI", 45], ["STU0162", "Machine Learning", 29], ["STU0162", "Java", 33], ["STU0162", "Communication", 67], ["STU0163", "Python", 41], ["STU0163", "SQL", 45], ["STU0163", "Power BI", 20], ["STU0163", "Machine Learning", 15], ["STU0163", "Java", 52], ["STU0163", "Communication", 63], ["STU0164", "Python", 18], ["STU0164", "SQL", 43], ["STU0164", "Power BI", 39], ["STU0164", "Machine Learning", 9], ["STU0164", "Java", 40], ["STU0164", "Communication", 76], ["STU0165", "Python", 43], ["STU0165", "SQL", 45], ["STU0165", "Power BI", 15], ["STU0165", "Machine Learning", 33], ["STU0165", "Java", 33], ["STU0165", "Communication", 63], ["STU0166", "Python", 50], ["STU0166", "SQL", 56], ["STU0166", "Power BI", 56], ["STU0166", "Machine Learning", 46], ["STU0166", "Java", 35], ["STU0166", "Communication", 72], ["STU0167", "Python", 49], ["STU0167", "SQL", 39], ["STU0167", "Power BI", 35], ["STU0167", "Machine Learning", 40], ["STU0167", "Java", 36], ["STU0167", "Communication", 60], ["STU0168", "Python", 32], ["STU0168", "SQL", 45], ["STU0168", "Power BI", 33], ["STU0168", "Machine Learning", 33], ["STU0168", "Java", 46], ["STU0168", "Communication", 64], ["STU0169", "Python", 49], ["STU0169", "SQL", 42], ["STU0169", "Power BI", 17], ["STU0169", "Machine Learning", 48], ["STU0169", "Java", 30], ["STU0169", "Communication", 50], ["STU0170", "Python", 23], ["STU0170", "SQL", 24], ["STU0170", "Power BI", 34], ["STU0170", "Machine Learning", 25], ["STU0170", "Java", 32], ["STU0170", "Communication", 75], ["STU0171", "Python", 43], ["STU0171", "SQL", 41], ["STU0171", "Power BI", 38], ["STU0171", "Machine Learning", 37], ["STU0171", "Java", 7], ["STU0171", "Communication", 64], ["STU0172", "Python", 7], ["STU0172", "SQL", 37], ["STU0172", "Power BI", 33], ["STU0172", "Machine Learning", 43], ["STU0172", "Java", 54], ["STU0172", "Communication", 70], ["STU0173", "Python", 31], ["STU0173", "SQL", 43], ["STU0173", "Power BI", 26], ["STU0173", "Machine Learning", 29], ["STU0173", "Java", 51], ["STU0173", "Communication", 62], ["STU0174", "Python", 49], ["STU0174", "SQL", 46], ["STU0174", "Power BI", 21], ["STU0174", "Machine Learning", 42], ["STU0174", "Java", 47], ["STU0174", "Communication", 69], ["STU0175", "Python", 27], ["STU0175", "SQL", 26], ["STU0175", "Power BI", 26], ["STU0175", "Machine Learning", 36], ["STU0175", "Java", 24], ["STU0175", "Communication", 73], ["STU0176", "Python", 21], ["STU0176", "SQL", 34], ["STU0176", "Power BI", 34], ["STU0176", "Machine Learning", 61], ["STU0176", "Java", 18], ["STU0176", "Communication", 84], ["STU0177", "Python", 40], ["STU0177", "SQL", 42], ["STU0177", "Power BI", 35], ["STU0177", "Machine Learning", 35], ["STU0177", "Java", 35], ["STU0177", "Communication", 84], ["STU0178", "Python", 32], ["STU0178", "SQL", 52], ["STU0178", "Power BI", 25], ["STU0178", "Machine Learning", 28], ["STU0178", "Java", 22], ["STU0178", "Communication", 73], ["STU0179", "Python", 58], ["STU0179", "SQL", 36], ["STU0179", "Power BI", 30], ["STU0179", "Machine Learning", 15], ["STU0179", "Java", 34], ["STU0179", "Communication", 50], ["STU0180", "Python", 25], ["STU0180", "SQL", 40], ["STU0180", "Power BI", 50], ["STU0180", "Machine Learning", 66], ["STU0180", "Java", 29], ["STU0180", "Communication", 84], ["STU0181", "Python", 41], ["STU0181", "SQL", 35], ["STU0181", "Power BI", 39], ["STU0181", "Machine Learning", 30], ["STU0181", "Java", 39], ["STU0181", "Communication", 64], ["STU0182", "Python", 18], ["STU0182", "SQL", 17], ["STU0182", "Power BI", 41], ["STU0182", "Machine Learning", 25], ["STU0182", "Java", 29], ["STU0182", "Communication", 68], ["STU0183", "Python", 49], ["STU0183", "SQL", 39], ["STU0183", "Power BI", 24], ["STU0183", "Machine Learning", 45], ["STU0183", "Java", 59], ["STU0183", "Communication", 73], ["STU0184", "Python", 52], ["STU0184", "SQL", 53], ["STU0184", "Power BI", 48], ["STU0184", "Machine Learning", 37], ["STU0184", "Java", 45], ["STU0184", "Communication", 74], ["STU0185", "Python", 23], ["STU0185", "SQL", 46], ["STU0185", "Power BI", 15], ["STU0185", "Machine Learning", 19], ["STU0185", "Java", 55], ["STU0185", "Communication", 77], ["STU0186", "Python", 59], ["STU0186", "SQL", 33], ["STU0186", "Power BI", 18], ["STU0186", "Machine Learning", 26], ["STU0186", "Java", 38], ["STU0186", "Communication", 69], ["STU0187", "Python", 54], ["STU0187", "SQL", 32], ["STU0187", "Power BI", 38], ["STU0187", "Machine Learning", 16], ["STU0187", "Java", 43], ["STU0187", "Communication", 68], ["STU0188", "Python", 28], ["STU0188", "SQL", 34], ["STU0188", "Power BI", 31], ["STU0188", "Machine Learning", 25], ["STU0188", "Java", 62], ["STU0188", "Communication", 67], ["STU0189", "Python", 35], ["STU0189", "SQL", 10], ["STU0189", "Power BI", 21], ["STU0189", "Machine Learning", 26], ["STU0189", "Java", 27], ["STU0189", "Communication", 83], ["STU0190", "Python", 36], ["STU0190", "SQL", 54], ["STU0190", "Power BI", 34], ["STU0190", "Machine Learning", 29], ["STU0190", "Java", 36], ["STU0190", "Communication", 68], ["STU0191", "Python", 62], ["STU0191", "SQL", 7], ["STU0191", "Power BI", 7], ["STU0191", "Machine Learning", 22], ["STU0191", "Java", 37], ["STU0191", "Communication", 76], ["STU0192", "Python", 45], ["STU0192", "SQL", 32], ["STU0192", "Power BI", 46], ["STU0192", "Machine Learning", 42], ["STU0192", "Java", 40], ["STU0192", "Communication", 79], ["STU0193", "Python", 42], ["STU0193", "SQL", 30], ["STU0193", "Power BI", 42], ["STU0193", "Machine Learning", 30], ["STU0193", "Java", 37], ["STU0193", "Communication", 84], ["STU0194", "Python", 4], ["STU0194", "SQL", 19], ["STU0194", "Power BI", 18], ["STU0194", "Machine Learning", 24], ["STU0194", "Java", 33], ["STU0194", "Communication", 51], ["STU0195", "Python", 24], ["STU0195", "SQL", 26], ["STU0195", "Power BI", 65], ["STU0195", "Machine Learning", 52], ["STU0195", "Java", 31], ["STU0195", "Communication", 64], ["STU0196", "Python", 22], ["STU0196", "SQL", 12], ["STU0196", "Power BI", 31], ["STU0196", "Machine Learning", 16], ["STU0196", "Java", 36], ["STU0196", "Communication", 50], ["STU0197", "Python", 27], ["STU0197", "SQL", 39], ["STU0197", "Power BI", 38], ["STU0197", "Machine Learning", 34], ["STU0197", "Java", 19], ["STU0197", "Communication", 77], ["STU0198", "Python", 27], ["STU0198", "SQL", 45], ["STU0198", "Power BI", 33], ["STU0198", "Machine Learning", 11], ["STU0198", "Java", 33], ["STU0198", "Communication", 72], ["STU0199", "Python", 47], ["STU0199", "SQL", 35], ["STU0199", "Power BI", 53], ["STU0199", "Machine Learning", 42], ["STU0199", "Java", 33], ["STU0199", "Communication", 76], ["STU0200", "Python", 65], ["STU0200", "SQL", 62], ["STU0200", "Power BI", 17], ["STU0200", "Machine Learning", 17], ["STU0200", "Java", 58], ["STU0200", "Communication", 56], ["STU0201", "Python", 19], ["STU0201", "SQL", 31], ["STU0201", "Power BI", 38], ["STU0201", "Machine Learning", 28], ["STU0201", "Java", 28], ["STU0201", "Communication", 61], ["STU0202", "Python", 28], ["STU0202", "SQL", 26], ["STU0202", "Power BI", 63], ["STU0202", "Machine Learning", 33], ["STU0202", "Java", 49], ["STU0202", "Communication", 63], ["STU0203", "Python", 35], ["STU0203", "SQL", 28], ["STU0203", "Power BI", 2], ["STU0203", "Machine Learning", 11], ["STU0203", "Java", 12], ["STU0203", "Communication", 43], ["STU0204", "Python", 21], ["STU0204", "SQL", 54], ["STU0204", "Power BI", 32], ["STU0204", "Machine Learning", 46], ["STU0204", "Java", 43], ["STU0204", "Communication", 77], ["STU0205", "Python", 25], ["STU0205", "SQL", 44], ["STU0205", "Power BI", 42], ["STU0205", "Machine Learning", 22], ["STU0205", "Java", 45], ["STU0205", "Communication", 74], ["STU0206", "Python", 26], ["STU0206", "SQL", 18], ["STU0206", "Power BI", 14], ["STU0206", "Machine Learning", 26], ["STU0206", "Java", 38], ["STU0206", "Communication", 59], ["STU0207", "Python", 34], ["STU0207", "SQL", 40], ["STU0207", "Power BI", 37], ["STU0207", "Machine Learning", 45], ["STU0207", "Java", 51], ["STU0207", "Communication", 57], ["STU0208", "Python", 58], ["STU0208", "SQL", 26], ["STU0208", "Power BI", 43], ["STU0208", "Machine Learning", 26], ["STU0208", "Java", 27], ["STU0208", "Communication", 48], ["STU0209", "Python", 32], ["STU0209", "SQL", 13], ["STU0209", "Power BI", 42], ["STU0209", "Machine Learning", 45], ["STU0209", "Java", 22], ["STU0209", "Communication", 71], ["STU0210", "Python", 24], ["STU0210", "SQL", 25], ["STU0210", "Power BI", 39], ["STU0210", "Machine Learning", 24], ["STU0210", "Java", 57], ["STU0210", "Communication", 63], ["STU0211", "Python", 48], ["STU0211", "SQL", 34], ["STU0211", "Power BI", 39], ["STU0211", "Machine Learning", 19], ["STU0211", "Java", 32], ["STU0211", "Communication", 67], ["STU0212", "Python", 22], ["STU0212", "SQL", 42], ["STU0212", "Power BI", 37], ["STU0212", "Machine Learning", 33], ["STU0212", "Java", 55], ["STU0212", "Communication", 84], ["STU0213", "Python", 29], ["STU0213", "SQL", 38], ["STU0213", "Power BI", 21], ["STU0213", "Machine Learning", 25], ["STU0213", "Java", 25], ["STU0213", "Communication", 86], ["STU0214", "Python", 39], ["STU0214", "SQL", 30], ["STU0214", "Power BI", 45], ["STU0214", "Machine Learning", 2], ["STU0214", "Java", 5], ["STU0214", "Communication", 77], ["STU0215", "Python", 35], ["STU0215", "SQL", 36], ["STU0215", "Power BI", 12], ["STU0215", "Machine Learning", 25], ["STU0215", "Java", 61], ["STU0215", "Communication", 77], ["STU0216", "Python", 36], ["STU0216", "SQL", 27], ["STU0216", "Power BI", 24], ["STU0216", "Machine Learning", 2], ["STU0216", "Java", 37], ["STU0216", "Communication", 77], ["STU0217", "Python", 12], ["STU0217", "SQL", 24], ["STU0217", "Power BI", 14], ["STU0217", "Machine Learning", 12], ["STU0217", "Java", 34], ["STU0217", "Communication", 45], ["STU0218", "Python", 43], ["STU0218", "SQL", 43], ["STU0218", "Power BI", 26], ["STU0218", "Machine Learning", 2], ["STU0218", "Java", 19], ["STU0218", "Communication", 82], ["STU0219", "Python", 2], ["STU0219", "SQL", 28], ["STU0219", "Power BI", 14], ["STU0219", "Machine Learning", 35], ["STU0219", "Java", 24], ["STU0219", "Communication", 72], ["STU0220", "Python", 42], ["STU0220", "SQL", 57], ["STU0220", "Power BI", 26], ["STU0220", "Machine Learning", 30], ["STU0220", "Java", 12], ["STU0220", "Communication", 81], ["STU0221", "Python", 23], ["STU0221", "SQL", 26], ["STU0221", "Power BI", 29], ["STU0221", "Machine Learning", 5], ["STU0221", "Java", 36], ["STU0221", "Communication", 79], ["STU0222", "Python", 38], ["STU0222", "SQL", 12], ["STU0222", "Power BI", 27], ["STU0222", "Machine Learning", 35], ["STU0222", "Java", 7], ["STU0222", "Communication", 56], ["STU0223", "Python", 46], ["STU0223", "SQL", 37], ["STU0223", "Power BI", 34], ["STU0223", "Machine Learning", 49], ["STU0223", "Java", 40], ["STU0223", "Communication", 75], ["STU0224", "Python", 72], ["STU0224", "SQL", 30], ["STU0224", "Power BI", 19], ["STU0224", "Machine Learning", 31], ["STU0224", "Java", 39], ["STU0224", "Communication", 62], ["STU0225", "Python", 20], ["STU0225", "SQL", 63], ["STU0225", "Power BI", 33], ["STU0225", "Machine Learning", 15], ["STU0225", "Java", 46], ["STU0225", "Communication", 67], ["STU0226", "Python", 30], ["STU0226", "SQL", 40], ["STU0226", "Power BI", 12], ["STU0226", "Machine Learning", 30], ["STU0226", "Java", 60], ["STU0226", "Communication", 73], ["STU0227", "Python", 29], ["STU0227", "SQL", 26], ["STU0227", "Power BI", 24], ["STU0227", "Machine Learning", 22], ["STU0227", "Java", 28], ["STU0227", "Communication", 78], ["STU0228", "Python", 10], ["STU0228", "SQL", 44], ["STU0228", "Power BI", 24], ["STU0228", "Machine Learning", 30], ["STU0228", "Java", 17], ["STU0228", "Communication", 83], ["STU0229", "Python", 51], ["STU0229", "SQL", 45], ["STU0229", "Power BI", 9], ["STU0229", "Machine Learning", 36], ["STU0229", "Java", 39], ["STU0229", "Communication", 50], ["STU0230", "Python", 34], ["STU0230", "SQL", 38], ["STU0230", "Power BI", 36], ["STU0230", "Machine Learning", 27], ["STU0230", "Java", 37], ["STU0230", "Communication", 84], ["STU0231", "Python", 51], ["STU0231", "SQL", 2], ["STU0231", "Power BI", 25], ["STU0231", "Machine Learning", 23], ["STU0231", "Java", 8], ["STU0231", "Communication", 69], ["STU0232", "Python", 51], ["STU0232", "SQL", 19], ["STU0232", "Power BI", 33], ["STU0232", "Machine Learning", 13], ["STU0232", "Java", 24], ["STU0232", "Communication", 84], ["STU0233", "Python", 26], ["STU0233", "SQL", 39], ["STU0233", "Power BI", 5], ["STU0233", "Machine Learning", 49], ["STU0233", "Java", 41], ["STU0233", "Communication", 66], ["STU0234", "Python", 42], ["STU0234", "SQL", 15], ["STU0234", "Power BI", 44], ["STU0234", "Machine Learning", 21], ["STU0234", "Java", 30], ["STU0234", "Communication", 63], ["STU0235", "Python", 26], ["STU0235", "SQL", 42], ["STU0235", "Power BI", 32], ["STU0235", "Machine Learning", 33], ["STU0235", "Java", 33], ["STU0235", "Communication", 74], ["STU0236", "Python", 28], ["STU0236", "SQL", 62], ["STU0236", "Power BI", 9], ["STU0236", "Machine Learning", 41], ["STU0236", "Java", 52], ["STU0236", "Communication", 59], ["STU0237", "Python", 65], ["STU0237", "SQL", 46], ["STU0237", "Power BI", 42], ["STU0237", "Machine Learning", 25], ["STU0237", "Java", 30], ["STU0237", "Communication", 66], ["STU0238", "Python", 39], ["STU0238", "SQL", 51], ["STU0238", "Power BI", 31], ["STU0238", "Machine Learning", 13], ["STU0238", "Java", 45], ["STU0238", "Communication", 78], ["STU0239", "Python", 43], ["STU0239", "SQL", 43], ["STU0239", "Power BI", 25], ["STU0239", "Machine Learning", 13], ["STU0239", "Java", 21], ["STU0239", "Communication", 50], ["STU0240", "Python", 37], ["STU0240", "SQL", 32], ["STU0240", "Power BI", 23], ["STU0240", "Machine Learning", 2], ["STU0240", "Java", 16], ["STU0240", "Communication", 80]];
+const DEMAND = [["Python", 68], ["SQL", 86], ["Power BI", 82], ["Machine Learning", 55], ["Java", 59], ["Communication", 50]];
+
+// ============================================================
+// Placement Skill-Gap Hub — client-side filter engine
+// Zero dependencies. Only runs in reaction to filter clicks.
+// The page is fully correct without this script ever executing.
+// ============================================================
+
+const COLORS = { navy:'#12233F', blue:'#2E5EAA', blueLight:'#8FADDD', muted:'#5B6472', hairline:'#DFE3EA' };
+const PRIORITY_COLOR = { CRITICAL:'#C0392B', HIGH:'#D9762B', MEDIUM:'#B7950B', LOW:'#1E8449' };
+const REC_TEMPLATES = {
+  CRITICAL: s => `Prioritize ${s} training immediately — largest readiness gap.`,
+  HIGH: s => `Schedule ${s} training this term — meaningful shortfall.`,
+  MEDIUM: s => `Reinforce ${s} through practice — modest shortfall.`,
+  LOW: s => `Maintain current ${s} readiness — no urgent gap.`,
+};
+
+function classify(gap){
+  if (gap >= 25) return 'CRITICAL';
+  if (gap >= 15) return 'HIGH';
+  if (gap >= 5) return 'MEDIUM';
+  return 'LOW';
+}
+
+// ---------- compute functions (STUDENTS row = [id, branch, batch, status, company, package]) ----------
+function computeKPIs(students){
+  const total = students.length;
+  const placed = students.filter(s => s[3] === 'Placed');
+  const studentsPlaced = placed.length;
+  const rate = total ? (studentsPlaced/total*100) : 0;
+  const avg = placed.length ? placed.reduce((a,s)=>a+s[5],0)/placed.length : 0;
+  const high = placed.length ? Math.max(...placed.map(s=>s[5])) : 0;
+  const companies = new Set(placed.map(s=>s[4])).size;
+  return {total, placed: studentsPlaced, rate, avg, high, companies};
+}
+
+function computeBranchRates(students){
+  const branches = [...new Set(students.map(s=>s[1]))].sort();
+  const rows = branches.map(b=>{
+    const inB = students.filter(s=>s[1]===b);
+    const placed = inB.filter(s=>s[3]==='Placed').length;
+    return {branch:b, rate: inB.length ? placed/inB.length*100 : 0};
+  });
+  return rows.sort((a,b)=>b.rate-a.rate);
+}
+
+function computeCompanyHiring(students, topN=8){
+  const placed = students.filter(s=>s[3]==='Placed');
+  const counts = {};
+  placed.forEach(s=>{ counts[s[4]] = (counts[s[4]]||0)+1; });
+  const rows = Object.entries(counts).map(([company,n])=>({company, placed:n}));
+  return rows.sort((a,b)=>b.placed-a.placed).slice(0,topN);
+}
+
+function computePackageBins(students){
+  const placed = students.filter(s=>s[3]==='Placed');
+  const bins = [];
+  for(let i=0;i<20;i+=2) bins.push({bin:`${i}-${i+2}`, count:0});
+  placed.forEach(s=>{
+    const idx = Math.min(Math.floor(s[5]/2), bins.length-1);
+    if (idx>=0) bins[idx].count++;
+  });
+  return bins;
+}
+
+function computeSkillRows(students, skillFilterSet){
+  const ids = new Set(students.map(s=>s[0]));
+  const demandRows = DEMAND.filter(d => skillFilterSet.size===0 || skillFilterSet.has(d[0]));
+  const rows = demandRows.map(([skill, demandLevel])=>{
+    const scores = SKILLS.filter(sc => sc[1]===skill && ids.has(sc[0])).map(sc=>sc[2]);
+    const readiness = scores.length ? scores.reduce((a,b)=>a+b,0)/scores.length : 0;
+    const gap = demandLevel - readiness;
+    const priority = classify(gap);
+    return {skill, demand:demandLevel, readiness, gap, priority, recommendation: REC_TEMPLATES[priority](skill)};
+  });
+  return rows.sort((a,b)=>b.gap-a.gap);
+}
+
+// ---------- SVG builders (mirror the Python versions exactly) ----------
+function svgHBar(data, valueKey, labelKey, color, opts={}){
+  const width=520, barH=opts.barH||22, gap=opts.gap||11, leftPad=opts.leftPad||148;
+  const fmt = opts.fmt || (v=>`${v.toFixed(0)}%`);
+  if (!data.length) return `<div style="padding:30px;text-align:center;color:${COLORS.muted};font-size:12.5px;">No data for this filter</div>`;
+  const n = data.length;
+  const height = n*(barH+gap)+gap;
+  const plotW = width-leftPad-54;
+  const maxValue = opts.maxValue || (Math.max(...data.map(d=>d[valueKey]))*1.12) || 1;
+  let y = gap;
+  let s = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">`;
+  for (const d of data){
+    const val = d[valueKey];
+    const bw = Math.max((val/maxValue)*plotW, 2);
+    const label = d[labelKey];
+    s += `<text x="${leftPad-8}" y="${(y+barH*0.66).toFixed(1)}" text-anchor="end" font-size="11" fill="${COLORS.muted}">${label}</text>`;
+    s += `<rect x="${leftPad}" y="${y}" width="${bw.toFixed(1)}" height="${barH}" rx="4" fill="${color}"><title>${label}: ${fmt(val)}</title></rect>`;
+    s += `<text x="${(leftPad+bw+7).toFixed(1)}" y="${(y+barH*0.66).toFixed(1)}" font-size="10.5" font-family="'Courier New',monospace" fill="${COLORS.navy}">${fmt(val)}</text>`;
+    y += barH+gap;
+  }
+  s += '</svg>';
+  return s;
+}
+
+function svgVBar(data, valueKey, labelKey, color){
+  const width=520, height=230, barGap=8, leftPad=8, rightPad=8, topPad=14, bottomPad=30;
+  const n = data.length;
+  const plotW = width-leftPad-rightPad;
+  const plotH = height-topPad-bottomPad;
+  const barW = (plotW-barGap*(n-1))/n;
+  const maxValue = Math.max(...data.map(d=>d[valueKey]), 0) || 1;
+  let s = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">`;
+  s += `<line x1="${leftPad}" y1="${(topPad+plotH).toFixed(1)}" x2="${(leftPad+plotW).toFixed(1)}" y2="${(topPad+plotH).toFixed(1)}" stroke="${COLORS.hairline}" stroke-width="1"/>`;
+  let x = leftPad;
+  for (const d of data){
+    const val = d[valueKey];
+    const bh = maxValue ? (val/maxValue)*(plotH-6) : 0;
+    const y = topPad+plotH-bh;
+    s += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(bh,1).toFixed(1)}" rx="3" fill="${color}"><title>${d[labelKey]} LPA: ${val} students</title></rect>`;
+    s += `<text x="${(x+barW/2).toFixed(1)}" y="${(height-bottomPad+13).toFixed(1)}" text-anchor="middle" font-size="9" fill="${COLORS.muted}">${d[labelKey]}</text>`;
+    x += barW+barGap;
+  }
+  s += '</svg>';
+  return s;
+}
+
+function svgPairedHBar(data){
+  const width=520, barH=10, rowGap=15, leftPad=112, maxValue=100;
+  if (!data.length) return `<div style="padding:30px;text-align:center;color:${COLORS.muted};font-size:12.5px;">No data for this filter</div>`;
+  const rowH = barH*2+4;
+  const legendH = 22;
+  const height = data.length*(rowH+rowGap)+rowGap+legendH;
+  const plotW = width-leftPad-54;
+  let s = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">`;
+  const lx = leftPad;
+  s += `<rect x="${lx}" y="4" width="11" height="11" rx="2" fill="${COLORS.blue}"/>`;
+  s += `<text x="${lx+16}" y="13.5" font-size="11" fill="${COLORS.muted}">Industry Demand %</text>`;
+  const lx2 = lx+150;
+  s += `<rect x="${lx2}" y="4" width="11" height="11" rx="2" fill="${COLORS.navy}"/>`;
+  s += `<text x="${lx2+16}" y="13.5" font-size="11" fill="${COLORS.muted}">Student Readiness %</text>`;
+  let y = rowGap+legendH;
+  for (const d of data){
+    s += `<text x="${leftPad-8}" y="${(y+rowH/2+4).toFixed(1)}" text-anchor="end" font-size="11" fill="${COLORS.muted}">${d.skill}</text>`;
+    const w1 = Math.max((d.demand/maxValue)*plotW, 2);
+    s += `<rect x="${leftPad}" y="${y}" width="${w1.toFixed(1)}" height="${barH}" rx="3" fill="${COLORS.blue}"><title>${d.skill} Demand: ${d.demand}%</title></rect>`;
+    s += `<text x="${(leftPad+w1+6).toFixed(1)}" y="${(y+barH*0.8).toFixed(1)}" font-size="9.5" font-family="'Courier New',monospace" fill="${COLORS.navy}">${d.demand.toFixed(0)}%</text>`;
+    const w2 = Math.max((d.readiness/maxValue)*plotW, 2);
+    const y2 = y+barH+3;
+    s += `<rect x="${leftPad}" y="${y2}" width="${w2.toFixed(1)}" height="${barH}" rx="3" fill="${COLORS.navy}"><title>${d.skill} Readiness: ${d.readiness.toFixed(1)}%</title></rect>`;
+    s += `<text x="${(leftPad+w2+6).toFixed(1)}" y="${(y2+barH*0.8).toFixed(1)}" font-size="9.5" font-family="'Courier New',monospace" fill="${COLORS.navy}">${d.readiness.toFixed(0)}%</text>`;
+    y += rowH+rowGap;
+  }
+  s += '</svg>';
+  return s;
+}
+
+function svgMatrix(skills){
+  const width=520, height=380, xMin=35, xMax=75, yMin=40, yMax=95, xSplit=50, ySplit=60;
+  if (!skills.length) return `<div style="padding:60px;text-align:center;color:${COLORS.muted};font-size:12.5px;">No skills selected</div>`;
+  const leftPad=46, rightPad=16, topPad=30, bottomPad=40;
+  const plotW = width-leftPad-rightPad;
+  const plotH = height-topPad-bottomPad;
+  const px = x => leftPad + (x-xMin)/(xMax-xMin)*plotW;
+  const py = y => topPad + (1-(y-yMin)/(yMax-yMin))*plotH;
+  const xs = px(xSplit), ys = py(ySplit);
+  let s = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">`;
+  s += `<rect x="${leftPad}" y="${topPad}" width="${(xs-leftPad).toFixed(1)}" height="${(ys-topPad).toFixed(1)}" fill="#C0392B" opacity="0.07"/>`;
+  s += `<rect x="${xs.toFixed(1)}" y="${topPad}" width="${(leftPad+plotW-xs).toFixed(1)}" height="${(ys-topPad).toFixed(1)}" fill="#1E8449" opacity="0.07"/>`;
+  s += `<rect x="${leftPad}" y="${ys.toFixed(1)}" width="${(xs-leftPad).toFixed(1)}" height="${(topPad+plotH-ys).toFixed(1)}" fill="#5B6472" opacity="0.06"/>`;
+  s += `<rect x="${xs.toFixed(1)}" y="${ys.toFixed(1)}" width="${(leftPad+plotW-xs).toFixed(1)}" height="${(topPad+plotH-ys).toFixed(1)}" fill="#B7950B" opacity="0.07"/>`;
+  s += `<line x1="${xs.toFixed(1)}" y1="${topPad}" x2="${xs.toFixed(1)}" y2="${topPad+plotH}" stroke="${COLORS.hairline}" stroke-width="1" stroke-dasharray="4,3"/>`;
+  s += `<line x1="${leftPad}" y1="${ys.toFixed(1)}" x2="${leftPad+plotW}" y2="${ys.toFixed(1)}" stroke="${COLORS.hairline}" stroke-width="1" stroke-dasharray="4,3"/>`;
+  s += `<rect x="${leftPad}" y="${topPad}" width="${plotW}" height="${plotH}" fill="none" stroke="${COLORS.hairline}" stroke-width="1"/>`;
+  s += `<text x="${leftPad+6}" y="${topPad+14}" font-size="9.5" font-weight="700" fill="#C0392B">CRITICAL TRAINING PRIORITY</text>`;
+  s += `<text x="${leftPad+plotW-56}" y="${topPad+14}" font-size="9.5" font-weight="700" fill="#1E8449">MAINTAIN</text>`;
+  s += `<text x="${leftPad+6}" y="${topPad+plotH-8}" font-size="9.5" font-weight="700" fill="${COLORS.muted}">LOW PRIORITY</text>`;
+  s += `<text x="${leftPad+plotW-58}" y="${topPad+plotH-8}" font-size="9.5" font-weight="700" fill="#B7950B">MONITOR</text>`;
+  s += `<text x="${(leftPad+plotW/2).toFixed(1)}" y="${height-8}" text-anchor="middle" font-size="10.5" fill="${COLORS.muted}">Student Readiness %</text>`;
+  s += `<text x="14" y="${(topPad+plotH/2).toFixed(1)}" font-size="10.5" fill="${COLORS.muted}" transform="rotate(-90 14 ${(topPad+plotH/2).toFixed(1)})">Industry Demand %</text>`;
+  for (const sk of skills){
+    const cx = px(Math.max(xMin, Math.min(xMax, sk.readiness)));
+    const cy = py(Math.max(yMin, Math.min(yMax, sk.demand)));
+    const col = PRIORITY_COLOR[sk.priority];
+    s += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="6.5" fill="${col}" stroke="#fff" stroke-width="1.5"><title>${sk.skill}: Readiness ${sk.readiness.toFixed(1)}% | Demand ${sk.demand}% | Gap ${sk.gap.toFixed(1)}% | ${sk.priority}</title></circle>`;
+    s += `<text x="${(cx+9).toFixed(1)}" y="${(cy+4).toFixed(1)}" font-size="10.5" font-weight="600" fill="${COLORS.navy}">${sk.skill}</text>`;
+  }
+  s += '</svg>';
+  return s;
+}
+
+function kpiHTML(k){
+  const defs = [
+    ['Total Students', k.total], ['Students Placed', k.placed],
+    ['Placement Rate', `${k.rate.toFixed(1)}%`], ['Avg Package (LPA)', k.avg.toFixed(2)],
+    ['Highest Package (LPA)', k.high.toFixed(2)], ['Company Count', k.companies],
+  ];
+  return defs.map(([l,v])=>`<div class="kpi-card"><div class="kpi-value">${v}</div><div class="kpi-label">${l}</div></div>`).join('');
+}
+
+function gapRowsHTML(rows){
+  if (!rows.length) return `<tr><td colspan="5" style="text-align:center;color:${COLORS.muted};padding:24px;">No skills selected</td></tr>`;
+  return rows.map(s=>`
+    <tr>
+      <td class="skill-name">${s.skill}</td>
+      <td class="num">${s.demand.toFixed(1)}%</td>
+      <td class="num">${s.readiness.toFixed(1)}%</td>
+      <td class="num">${s.gap.toFixed(1)}%</td>
+      <td><span class="chip ${s.priority}">${s.priority}</span></td>
+    </tr>`).join('');
+}
+
+function recRowsHTML(rows){
+  if (!rows.length) return `<tr><td colspan="3" style="text-align:center;color:${COLORS.muted};padding:24px;">No skills selected</td></tr>`;
+  return rows.map(s=>`
+    <tr>
+      <td class="skill-name">${s.skill}</td>
+      <td><span class="chip ${s.priority}">${s.priority}</span></td>
+      <td class="rec">${s.recommendation}</td>
+    </tr>`).join('');
+}
+
+// ---------- filter state ----------
+const activeBranch = new Set();
+const activeBatch = new Set();
+const activeSkill = new Set();
+
+function renderCommandCenter(){
+  const filtered = STUDENTS.filter(s =>
+    (activeBranch.size===0 || activeBranch.has(s[1])) &&
+    (activeBatch.size===0 || activeBatch.has(s[2]))
+  );
+  const k = computeKPIs(filtered);
+  document.getElementById('kpiGrid').innerHTML = kpiHTML(k);
+  const branchRows = computeBranchRates(filtered);
+  document.getElementById('branchChart').innerHTML = svgHBar(branchRows, 'rate', 'branch', COLORS.blue, {fmt:v=>`${v.toFixed(1)}%`});
+  const companyRows = computeCompanyHiring(filtered);
+  document.getElementById('companyChart').innerHTML = svgHBar(companyRows, 'placed', 'company', COLORS.navy,
+    {barH:17, gap:8, fmt:v=>`${v.toFixed(0)}`, maxValue: (Math.max(...companyRows.map(d=>d.placed),1)*1.15)});
+  const pkgRows = computePackageBins(filtered);
+  document.getElementById('packageChart').innerHTML = svgVBar(pkgRows, 'count', 'bin', COLORS.blueLight);
+  const label = (activeBranch.size===0 && activeBatch.size===0)
+    ? `Showing all ${k.total} students`
+    : `Showing ${k.total} of ${STUDENTS.length} students`;
+  document.getElementById('countLabel').textContent = label;
+}
+
+function renderSkillSections(){
+  const rows = computeSkillRows(STUDENTS, activeSkill);
+  const byDemand = [...rows].sort((a,b)=>b.demand-a.demand);
+  document.getElementById('demandChart').innerHTML = svgHBar(byDemand, 'demand', 'skill', COLORS.blue, {fmt:v=>`${v.toFixed(0)}%`});
+  document.getElementById('pairedChart').innerHTML = svgPairedHBar(rows);
+  document.getElementById('gapTableBody').innerHTML = gapRowsHTML(rows);
+  document.getElementById('matrixChart').innerHTML = svgMatrix(rows);
+  document.getElementById('recTableBody').innerHTML = recRowsHTML(rows);
+}
+
+function toggleChip(btn, set, value, rerenderFn){
+  if (set.has(value)) { set.delete(value); btn.classList.remove('active'); }
+  else { set.add(value); btn.classList.add('active'); }
+  rerenderFn();
+}
+
+function resetGroup(groupSelector, set, rerenderFn){
+  set.clear();
+  document.querySelectorAll(groupSelector).forEach(b=>b.classList.remove('active'));
+  rerenderFn();
+}
+
+function initFilters(){
+  document.querySelectorAll('[data-group="branch"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>toggleChip(btn, activeBranch, btn.dataset.value, renderCommandCenter));
+  });
+  document.querySelectorAll('[data-group="batch"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>toggleChip(btn, activeBatch, parseInt(btn.dataset.value,10), renderCommandCenter));
+  });
+  document.querySelectorAll('[data-group="skill"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>toggleChip(btn, activeSkill, btn.dataset.value, renderSkillSections));
+  });
+  const r1 = document.getElementById('resetCommandFilters');
+  if (r1) r1.addEventListener('click', ()=>{
+    resetGroup('[data-group="branch"]', activeBranch, ()=>{});
+    resetGroup('[data-group="batch"]', activeBatch, renderCommandCenter);
+  });
+  const r2 = document.getElementById('resetSkillFilters');
+  if (r2) r2.addEventListener('click', ()=> resetGroup('[data-group="skill"]', activeSkill, renderSkillSections));
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFilters);
+} else {
+  initFilters();
+}
+
+</script>
+
+<script>
+(function(){
+  function currentStudents(){
+    return STUDENTS.filter(s =>
+      (activeBranch.size===0 || activeBranch.has(s[1])) &&
+      (activeBatch.size===0 || activeBatch.has(s[2]))
+    );
+  }
+  function esc(v){
+    return String(v).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  }
+  function updateHero(rows){
+    const hero = document.getElementById('heroInsight');
+    if(!hero) return;
+    if(!rows.length){ hero.style.display='none'; return; }
+    hero.style.display='';
+    const top = rows[0];
+    document.getElementById('heroSkill').textContent = top.skill;
+    document.getElementById('heroDemand').textContent = top.demand.toFixed(1)+'%';
+    document.getElementById('heroReadiness').textContent = top.readiness.toFixed(1)+'%';
+    document.getElementById('heroGap').textContent = top.gap.toFixed(1)+' pts';
+    const p = document.getElementById('heroPriority');
+    p.className = 'hero-priority chip '+top.priority;
+    p.textContent = top.priority;
+    document.getElementById('formulaExample').innerHTML =
+      '<span>'+esc(top.skill)+'</span>'+
+      '<strong>'+top.demand.toFixed(1)+'% demand</strong><b>&minus;</b>'+
+      '<strong>'+top.readiness.toFixed(1)+'% readiness</strong><b>=</b>'+
+      '<strong>'+top.gap.toFixed(1)+' percentage points</strong>';
+  }
+
+  function renderBranchHeatmap(){
+    const el = document.getElementById('branchHeatmap');
+    if(!el) return;
+    const filtered = currentStudents();
+    const branches = activeBranch.size ? [...activeBranch] : [...new Set(STUDENTS.map(s=>s[1]))].sort();
+    let out = '<div class="heatmap-wrap"><table class="heatmap"><thead><tr><th>Branch</th>';
+    DEMAND.forEach(d=>out += '<th>'+esc(d[0])+'</th>');
+    out += '</tr></thead><tbody>';
+    branches.forEach(branch=>{
+      const ids = new Set(filtered.filter(s=>s[1]===branch).map(s=>s[0]));
+      out += '<tr><td><strong>'+esc(branch)+'</strong></td>';
+      DEMAND.forEach(([skill,demand])=>{
+        const vals = SKILLS.filter(sc=>sc[1]===skill && ids.has(sc[0])).map(sc=>sc[2]);
+        const readiness = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : 0;
+        const gap = demand - readiness;
+        const cls = gap < 0 ? 'negative' : gap < 10 ? 'positive-low' : gap < 20 ? 'positive-med' : 'positive-high';
+        out += '<td class="'+cls+'">'+gap.toFixed(1)+' pts</td>';
+      });
+      out += '</tr>';
+    });
+    out += '</tbody></table></div>';
+    el.innerHTML = out;
+  }
+
+  function refreshSkillStory(){
+    const rows = computeSkillRows(currentStudents(), activeSkill);
+    const byDemand = [...rows].sort((a,b)=>b.demand-a.demand);
+    const demand = document.getElementById('demandChart');
+    const paired = document.getElementById('pairedChart');
+    const table = document.getElementById('gapTableBody');
+    const matrix = document.getElementById('matrixChart');
+    const rec = document.getElementById('recTableBody');
+    if(demand) demand.innerHTML = svgHBar(byDemand,'demand','skill',COLORS.blue,{fmt:v=>`${v.toFixed(0)}%`});
+    if(paired) paired.innerHTML = svgPairedHBar(rows);
+    if(table) table.innerHTML = gapRowsHTML(rows);
+    if(matrix) matrix.innerHTML = svgMatrix(rows);
+    if(rec) rec.innerHTML = recRowsHTML(rows);
+    updateHero(rows);
+    renderBranchHeatmap();
+  }
+
+  const oldCommand = renderCommandCenter;
+  renderCommandCenter = function(){
+    oldCommand();
+    refreshSkillStory();
+  };
+
+  const oldSkill = renderSkillSections;
+  renderSkillSections = function(){
+    refreshSkillStory();
+  };
+
+  // Existing listeners remain; these ensure branch/batch changes propagate to skill analysis.
+  document.querySelectorAll('[data-group="branch"],[data-group="batch"],[data-group="skill"]').forEach(btn=>{
+    btn.addEventListener('click',()=>setTimeout(refreshSkillStory,0));
+  });
+  const resetCommand = document.getElementById('resetCommandFilters');
+  if(resetCommand) resetCommand.addEventListener('click',()=>setTimeout(refreshSkillStory,0));
+
+  refreshSkillStory();
+})();
+</script>
+
+
+<script>
+(function(){
+  const overlay = document.getElementById('introOverlay');
+  const enterBtn = document.getElementById('enterDashboard');
+  const toast = document.getElementById('toast');
+  const toastText = document.getElementById('toastText');
+
+  function enterDashboard(){
+    if(!overlay) return;
+    overlay.classList.add('hide');
+    document.body.classList.remove('intro-lock');
+    sessionStorage.setItem('psgh_intro_seen','1');
+  }
+  if(enterBtn) enterBtn.addEventListener('click', enterDashboard);
+  document.addEventListener('keydown', e=>{
+    if((e.key==='Enter' || e.key===' ') && overlay && !overlay.classList.contains('hide')){
+      e.preventDefault(); enterDashboard();
+    }
+    if(e.key==='Escape' && overlay && !overlay.classList.contains('hide')) enterDashboard();
+  });
+
+  // Skip the intro on reload after the user has already entered the dashboard in this tab.
+  if(sessionStorage.getItem('psgh_intro_seen')==='1'){
+    if(overlay) overlay.classList.add('hide');
+    document.body.classList.remove('intro-lock');
+  }
+
+  let toastTimer;
+  function showToast(message){
+    if(!toast) return;
+    toastText.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove('show'),1800);
+  }
+
+  function updateSelectionMeta(){
+    const text = document.getElementById('selectionText');
+    if(!text) return;
+    const branches = [...activeBranch];
+    const batches = [...activeBatch];
+    const b = branches.length ? branches.join(', ') : 'All branches';
+    const ba = batches.length ? batches.join(', ') : 'All batches';
+    text.textContent = b + ' · ' + ba;
+  }
+
+  // Section reveal.
+  const sections = document.querySelectorAll('section.page');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('revealed'); });
+    },{threshold:.08});
+    sections.forEach(s=>{s.classList.add('section-reveal');io.observe(s);});
+  } else {
+    sections.forEach(s=>s.classList.add('revealed'));
+  }
+
+  // Active nav state.
+  const navLinks = [...document.querySelectorAll('nav a')];
+  const sectionMap = navLinks.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+  if('IntersectionObserver' in window){
+    const nio = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          navLinks.forEach(a=>a.classList.remove('nav-active'));
+          const match = sectionMap.find(x=>x.el===entry.target);
+          if(match) match.a.classList.add('nav-active');
+        }
+      });
+    },{rootMargin:'-30% 0px -55% 0px',threshold:0});
+    sectionMap.forEach(x=>nio.observe(x.el));
+  }
+
+  // Scroll progress.
+  const progress = document.getElementById('scrollProgress');
+  window.addEventListener('scroll',()=>{
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max ? (window.scrollY/max)*100 : 0;
+    if(progress) progress.style.width = pct.toFixed(1)+'%';
+  },{passive:true});
+
+  // Make filter state more expressive and auditable.
+  document.querySelectorAll('[data-group="branch"],[data-group="batch"],[data-group="skill"]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      setTimeout(()=>{
+        const group = btn.dataset.group;
+        const value = btn.dataset.value;
+        updateSelectionMeta();
+        if(group==='skill'){
+          showToast((activeSkill.size ? [...activeSkill].join(', ') : 'All skills') + ' focus applied');
+        }else{
+          showToast(value + (btn.classList.contains('active') ? ' selected' : ' cleared'));
+        }
+      },20);
+    });
+  });
+
+  // Quick demo path: select CSE + 2026, then scroll to the skill-gap section.
+  const quick = document.getElementById('quickDemoBtn');
+  if(quick){
+    quick.addEventListener('click',()=>{
+      document.querySelectorAll('[data-group="branch"],[data-group="batch"]').forEach(b=>b.classList.remove('active'));
+      activeBranch.clear();
+      activeBatch.clear();
+      const cse = document.querySelector('[data-group="branch"][data-value="CSE"]');
+      const batch = document.querySelector('[data-group="batch"][data-value="2026"]');
+      if(cse){activeBranch.add('CSE');cse.classList.add('active');}
+      if(batch){activeBatch.add(2026);batch.classList.add('active');}
+      if(typeof renderCommandCenter==='function') renderCommandCenter();
+      if(typeof renderSkillSections==='function') renderSkillSections();
+      updateSelectionMeta();
+      showToast('Demo path loaded: CSE · 2026');
+      setTimeout(()=>{
+        document.getElementById('skill-gap')?.scrollIntoView({behavior:'smooth',block:'start'});
+      },180);
+    });
+  }
+
+  // Add subtle count-up animation to visible KPI values after major updates.
+  function animateKPIs(){
+    document.querySelectorAll('#kpiGrid .kpi-value').forEach((el,i)=>{
+      el.style.animation='none';
+      void el.offsetWidth;
+      el.style.animation='heroIn .35s '+(i*.03)+'s both';
+    });
+  }
+
+  const oldCommand = renderCommandCenter;
+  renderCommandCenter = function(){
+    oldCommand();
+    animateKPIs();
+    updateSelectionMeta();
+  };
+
+  // Improve reset UX.
+  const r1 = document.getElementById('resetCommandFilters');
+  if(r1) r1.addEventListener('click',()=>setTimeout(()=>{
+    updateSelectionMeta();
+    showToast('Placement filters reset');
+  },30));
+  const r2 = document.getElementById('resetSkillFilters');
+  if(r2) r2.addEventListener('click',()=>setTimeout(()=>showToast('Skill focus reset'),30));
+
+  // Accessible button labels.
+  document.querySelectorAll('.filter-chip').forEach(btn=>{
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true':'false');
+    const obs = new MutationObserver(()=>{
+      btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true':'false');
+    });
+    obs.observe(btn,{attributes:true,attributeFilter:['class']});
+  });
+
+  // Initial metadata.
+  updateSelectionMeta();
+})();
+</script>
+
+</body>
+</html>

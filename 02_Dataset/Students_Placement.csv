@@ -1,0 +1,241 @@
+Student_ID,Branch,Batch,Placement_Status,Company,Package
+STU0001,CSE,2025,Not Placed,,
+STU0002,CSE,2026,Placed,Anchor Logistics Tech,4.72
+STU0003,CSE,2025,Placed,Copperleaf Industries,5.23
+STU0004,CSE,2026,Placed,Millbrook Hydraulics,5.92
+STU0005,CSE,2025,Not Placed,,
+STU0006,CSE,2026,Placed,Nexalytics Global,16.99
+STU0007,CSE,2025,Placed,Quantera Labs,11.1
+STU0008,CSE,2026,Placed,Verdant Software,7.46
+STU0009,CSE,2025,Placed,Verdant Software,7.71
+STU0010,CSE,2026,Placed,Anchor Logistics Tech,5.73
+STU0011,CSE,2025,Placed,Steadfast Engineering,3.95
+STU0012,CSE,2026,Placed,Northstar Manufacturing,3.29
+STU0013,CSE,2025,Placed,Havenbyte Systems,9.88
+STU0014,CSE,2026,Placed,Havenbyte Systems,8.75
+STU0015,CSE,2025,Not Placed,,
+STU0016,CSE,2026,Not Placed,,
+STU0017,CSE,2025,Placed,Amberline Textiles,3.05
+STU0018,CSE,2026,Placed,Cobalt Robotics,8.47
+STU0019,CSE,2025,Placed,Cobalt Robotics,7.46
+STU0020,CSE,2026,Not Placed,,
+STU0021,CSE,2025,Placed,Falcon Precision Tools,5.61
+STU0022,CSE,2026,Placed,Pinegrove Electricals,3.84
+STU0023,CSE,2025,Placed,Copperleaf Industries,3.61
+STU0024,CSE,2026,Placed,Greenridge Utilities,5.88
+STU0025,CSE,2025,Placed,Copperleaf Industries,5.93
+STU0026,CSE,2026,Placed,Meridian Cloud Co,8.24
+STU0027,CSE,2025,Not Placed,,
+STU0028,CSE,2026,Placed,Havenbyte Systems,8.42
+STU0029,CSE,2025,Not Placed,,
+STU0030,CSE,2026,Placed,BrightWave Technologies,7.07
+STU0031,CSE,2025,Placed,Nexalytics Global,14.67
+STU0032,CSE,2026,Not Placed,,
+STU0033,CSE,2025,Placed,Greenridge Utilities,4.64
+STU0034,CSE,2026,Placed,Meridian Cloud Co,8.01
+STU0035,CSE,2025,Placed,Verdant Software,6.67
+STU0036,CSE,2026,Placed,Copperleaf Industries,5.32
+STU0037,CSE,2025,Placed,Pinegrove Electricals,3.99
+STU0038,CSE,2026,Placed,Steadfast Engineering,5.36
+STU0039,CSE,2025,Placed,Lumen Field Systems,5.51
+STU0040,CSE,2026,Placed,Falcon Precision Tools,4.16
+STU0041,CSE,2025,Placed,Union Foundry Works,4.37
+STU0042,CSE,2026,Placed,Amberline Textiles,4.35
+STU0043,CSE,2025,Placed,Greenridge Utilities,3.84
+STU0044,CSE,2026,Placed,Northstar Manufacturing,4.21
+STU0045,CSE,2025,Not Placed,,
+STU0046,CSE,2026,Placed,Solstice Data Works,8.18
+STU0047,CSE,2025,Placed,Crestline Auto Components,5.77
+STU0048,CSE,2026,Placed,Quantera Labs,14.37
+STU0049,CSE,2025,Not Placed,,
+STU0050,CSE,2026,Placed,Greenridge Utilities,4.35
+STU0051,CSE,2025,Placed,Solstice Data Works,8.44
+STU0052,CSE,2026,Placed,Anchor Logistics Tech,4.68
+STU0053,CSE,2025,Placed,Amberline Textiles,4.23
+STU0054,CSE,2026,Placed,Amberline Textiles,5.72
+STU0055,CSE,2025,Not Placed,,
+STU0056,CSE,2026,Placed,BrightWave Technologies,7.25
+STU0057,CSE,2025,Not Placed,,
+STU0058,CSE,2026,Placed,Greenridge Utilities,3.78
+STU0059,CSE,2025,Placed,Crestline Auto Components,4.64
+STU0060,CSE,2026,Placed,Pinegrove Electricals,4.27
+STU0061,AIDS,2025,Placed,Crestline Auto Components,5.77
+STU0062,AIDS,2026,Placed,Havenbyte Systems,9.4
+STU0063,AIDS,2025,Placed,Quantera Labs,17.41
+STU0064,AIDS,2026,Not Placed,,
+STU0065,AIDS,2025,Placed,Union Foundry Works,4.7
+STU0066,AIDS,2026,Placed,Cobalt Robotics,8.92
+STU0067,AIDS,2025,Placed,Copperleaf Industries,5.85
+STU0068,AIDS,2026,Placed,Ironpeak Analytics,8.74
+STU0069,AIDS,2025,Not Placed,,
+STU0070,AIDS,2026,Placed,Crestline Auto Components,3.98
+STU0071,AIDS,2025,Not Placed,,
+STU0072,AIDS,2026,Not Placed,,
+STU0073,AIDS,2025,Not Placed,,
+STU0074,AIDS,2026,Placed,Cobalt Robotics,9.6
+STU0075,AIDS,2025,Placed,BrightWave Technologies,8.17
+STU0076,AIDS,2026,Placed,Union Foundry Works,4.98
+STU0077,AIDS,2025,Placed,Lumen Field Systems,5.61
+STU0078,AIDS,2026,Not Placed,,
+STU0079,AIDS,2025,Placed,Meridian Cloud Co,6.81
+STU0080,AIDS,2026,Not Placed,,
+STU0081,AIDS,2025,Placed,Union Foundry Works,5.59
+STU0082,AIDS,2026,Placed,Verdant Software,9.74
+STU0083,AIDS,2025,Placed,Orbitrix Systems,13.19
+STU0084,AIDS,2026,Placed,Lumen Field Systems,3.88
+STU0085,AIDS,2025,Placed,Union Foundry Works,3.63
+STU0086,AIDS,2026,Placed,Pinegrove Electricals,4.83
+STU0087,AIDS,2025,Placed,Quantera Labs,17.11
+STU0088,AIDS,2026,Not Placed,,
+STU0089,AIDS,2025,Placed,Verdant Software,7.59
+STU0090,AIDS,2026,Placed,Copperleaf Industries,3.65
+STU0091,AIDS,2025,Not Placed,,
+STU0092,AIDS,2026,Placed,Cobalt Robotics,6.32
+STU0093,AIDS,2025,Not Placed,,
+STU0094,AIDS,2026,Placed,Solstice Data Works,8.97
+STU0095,AIDS,2025,Placed,Northstar Manufacturing,5.86
+STU0096,AIDS,2026,Placed,Lumen Field Systems,5.68
+STU0097,AIDS,2025,Placed,Greenridge Utilities,4.73
+STU0098,AIDS,2026,Placed,Amberline Textiles,5.91
+STU0099,AIDS,2025,Placed,Orbitrix Systems,11.76
+STU0100,AIDS,2026,Placed,Pinegrove Electricals,4.43
+STU0101,AIDS,2025,Placed,Lumen Field Systems,6.12
+STU0102,AIDS,2026,Placed,Cobalt Robotics,9.31
+STU0103,AIDS,2025,Placed,Northstar Manufacturing,5.32
+STU0104,AIDS,2026,Not Placed,,
+STU0105,AIDS,2025,Placed,BrightWave Technologies,8.74
+STU0106,AIDS,2026,Placed,Northstar Manufacturing,3.62
+STU0107,AIDS,2025,Placed,Verdant Software,6.49
+STU0108,AIDS,2026,Placed,Crestline Auto Components,3.9
+STU0109,AIDS,2025,Not Placed,,
+STU0110,AIDS,2026,Placed,Union Foundry Works,5.27
+STU0111,IT,2025,Placed,Greenridge Utilities,4.06
+STU0112,IT,2026,Placed,Millbrook Hydraulics,3.11
+STU0113,IT,2025,Placed,Crestline Auto Components,5.63
+STU0114,IT,2026,Placed,Millbrook Hydraulics,5.03
+STU0115,IT,2025,Placed,Solstice Data Works,9.14
+STU0116,IT,2026,Placed,Amberline Textiles,4.42
+STU0117,IT,2025,Not Placed,,
+STU0118,IT,2026,Placed,Orbitrix Systems,11.78
+STU0119,IT,2025,Placed,Meridian Cloud Co,7.34
+STU0120,IT,2026,Not Placed,,
+STU0121,IT,2025,Not Placed,,
+STU0122,IT,2026,Not Placed,,
+STU0123,IT,2025,Placed,Copperleaf Industries,3.59
+STU0124,IT,2026,Placed,Nexalytics Global,17.03
+STU0125,IT,2025,Placed,Anchor Logistics Tech,3.23
+STU0126,IT,2026,Placed,Lumen Field Systems,3.98
+STU0127,IT,2025,Placed,Pinegrove Electricals,5.88
+STU0128,IT,2026,Placed,Solstice Data Works,8.74
+STU0129,IT,2025,Not Placed,,
+STU0130,IT,2026,Placed,Quantera Labs,17.88
+STU0131,IT,2025,Placed,Millbrook Hydraulics,4.52
+STU0132,IT,2026,Placed,Cobalt Robotics,8.89
+STU0133,IT,2025,Placed,Cobalt Robotics,7.83
+STU0134,IT,2026,Not Placed,,
+STU0135,IT,2025,Not Placed,,
+STU0136,IT,2026,Placed,Crestline Auto Components,5.01
+STU0137,IT,2025,Placed,Copperleaf Industries,4.91
+STU0138,IT,2026,Placed,Solstice Data Works,6.01
+STU0139,IT,2025,Placed,Union Foundry Works,4.3
+STU0140,IT,2026,Not Placed,,
+STU0141,IT,2025,Placed,Cobalt Robotics,7.02
+STU0142,IT,2026,Placed,Crestline Auto Components,3.88
+STU0143,IT,2025,Placed,Nexalytics Global,13.73
+STU0144,IT,2026,Placed,Cobalt Robotics,7.6
+STU0145,IT,2025,Placed,Union Foundry Works,5.21
+STU0146,IT,2026,Placed,Pinegrove Electricals,4.93
+STU0147,IT,2025,Placed,Verdant Software,7.86
+STU0148,IT,2026,Not Placed,,
+STU0149,IT,2025,Not Placed,,
+STU0150,IT,2026,Placed,Cobalt Robotics,8.12
+STU0151,IT,2025,Placed,Solstice Data Works,7.73
+STU0152,IT,2026,Placed,BrightWave Technologies,7.54
+STU0153,IT,2025,Placed,Pinegrove Electricals,3.28
+STU0154,IT,2026,Placed,Millbrook Hydraulics,4.35
+STU0155,IT,2025,Not Placed,,
+STU0156,IT,2026,Placed,Orbitrix Systems,11.99
+STU0157,IT,2025,Placed,Verdant Software,7.15
+STU0158,IT,2026,Placed,Ironpeak Analytics,6.11
+STU0159,IT,2025,Not Placed,,
+STU0160,IT,2026,Placed,Solstice Data Works,6.49
+STU0161,ECE,2025,Placed,Pinegrove Electricals,4.45
+STU0162,ECE,2026,Not Placed,,
+STU0163,ECE,2025,Not Placed,,
+STU0164,ECE,2026,Not Placed,,
+STU0165,ECE,2025,Not Placed,,
+STU0166,ECE,2026,Placed,Ironpeak Analytics,6.08
+STU0167,ECE,2025,Not Placed,,
+STU0168,ECE,2026,Not Placed,,
+STU0169,ECE,2025,Placed,Union Foundry Works,3.19
+STU0170,ECE,2026,Not Placed,,
+STU0171,ECE,2025,Not Placed,,
+STU0172,ECE,2026,Not Placed,,
+STU0173,ECE,2025,Placed,BrightWave Technologies,9.72
+STU0174,ECE,2026,Placed,Falcon Precision Tools,5.83
+STU0175,ECE,2025,Not Placed,,
+STU0176,ECE,2026,Not Placed,,
+STU0177,ECE,2025,Not Placed,,
+STU0178,ECE,2026,Not Placed,,
+STU0179,ECE,2025,Not Placed,,
+STU0180,ECE,2026,Placed,Meridian Cloud Co,9.78
+STU0181,ECE,2025,Placed,Havenbyte Systems,7.48
+STU0182,ECE,2026,Placed,Falcon Precision Tools,5.43
+STU0183,ECE,2025,Placed,Ironpeak Analytics,7.41
+STU0184,ECE,2026,Not Placed,,
+STU0185,ECE,2025,Placed,Millbrook Hydraulics,5.63
+STU0186,ECE,2026,Placed,Orbitrix Systems,14.75
+STU0187,ECE,2025,Not Placed,,
+STU0188,ECE,2026,Placed,Millbrook Hydraulics,3.24
+STU0189,ECE,2025,Placed,Northstar Manufacturing,3.98
+STU0190,ECE,2026,Not Placed,,
+STU0191,ECE,2025,Not Placed,,
+STU0192,ECE,2026,Not Placed,,
+STU0193,ECE,2025,Not Placed,,
+STU0194,ECE,2026,Placed,Meridian Cloud Co,6.52
+STU0195,ECE,2025,Not Placed,,
+STU0196,ECE,2026,Not Placed,,
+STU0197,ECE,2025,Not Placed,,
+STU0198,ECE,2026,Not Placed,,
+STU0199,ECE,2025,Not Placed,,
+STU0200,ECE,2026,Not Placed,,
+STU0201,ECE,2025,Not Placed,,
+STU0202,ECE,2026,Placed,Steadfast Engineering,4.97
+STU0203,ECE,2025,Not Placed,,
+STU0204,ECE,2026,Not Placed,,
+STU0205,ECE,2025,Not Placed,,
+STU0206,MECH,2025,Not Placed,,
+STU0207,MECH,2026,Placed,Lumen Field Systems,2.89
+STU0208,MECH,2025,Not Placed,,
+STU0209,MECH,2026,Not Placed,,
+STU0210,MECH,2025,Not Placed,,
+STU0211,MECH,2026,Placed,BrightWave Technologies,6.01
+STU0212,MECH,2025,Placed,Amberline Textiles,4.87
+STU0213,MECH,2026,Not Placed,,
+STU0214,MECH,2025,Not Placed,,
+STU0215,MECH,2026,Not Placed,,
+STU0216,MECH,2025,Placed,Anchor Logistics Tech,4.72
+STU0217,MECH,2026,Not Placed,,
+STU0218,MECH,2025,Not Placed,,
+STU0219,MECH,2026,Not Placed,,
+STU0220,MECH,2025,Not Placed,,
+STU0221,MECH,2026,Not Placed,,
+STU0222,MECH,2025,Not Placed,,
+STU0223,MECH,2026,Placed,Union Foundry Works,3.49
+STU0224,MECH,2025,Not Placed,,
+STU0225,MECH,2026,Placed,Amberline Textiles,4.78
+STU0226,MECH,2025,Placed,Steadfast Engineering,3.73
+STU0227,MECH,2026,Not Placed,,
+STU0228,MECH,2025,Placed,Havenbyte Systems,5.67
+STU0229,MECH,2026,Not Placed,,
+STU0230,MECH,2025,Not Placed,,
+STU0231,MECH,2026,Not Placed,,
+STU0232,MECH,2025,Not Placed,,
+STU0233,MECH,2026,Not Placed,,
+STU0234,MECH,2025,Not Placed,,
+STU0235,MECH,2026,Placed,Crestline Auto Components,3.42
+STU0236,MECH,2025,Placed,Millbrook Hydraulics,3.68
+STU0237,MECH,2026,Not Placed,,
+STU0238,MECH,2025,Not Placed,,
+STU0239,MECH,2026,Placed,Crestline Auto Components,3.66
+STU0240,MECH,2025,Not Placed,,
