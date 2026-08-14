@@ -134,15 +134,15 @@ Training recommendations based on the identified gap.
 
 # 🧠 Analytics Types Used
 
-| Analytics Type | How it appears in the project |
-|---|---|
-| **Descriptive** | Placement rates, packages, companies, branch comparisons |
-| **Diagnostic** | Demand vs. readiness and skill-gap analysis |
-| **Prescriptive** | Rule-based training priority recommendations |
-| **Predictive** | Future scope |
-| **AI** | Future scope |
+| Analytics Type | Status | How it appears in the project |
+|---|---|---|
+| **Descriptive** | ✅ Implemented | Placement rates, packages, companies, branch comparisons |
+| **Diagnostic** | ✅ Implemented | Demand vs. readiness, skill-gap analysis, branch-skill heatmap |
+| **Prescriptive** | ✅ Implemented | Rule-based training priority recommendations |
+| **Predictive** | ⬜ Future scope | Not implemented — see Future Scope section |
+| **AI / ML** | ⬜ Future scope | Not implemented — see Future Scope section |
 
-The current MVP is primarily **descriptive + diagnostic + prescriptive analytics**.
+The current MVP is **descriptive + diagnostic + prescriptive analytics**. No predictive modeling or AI/ML is implemented or claimed.
 
 ---
 
@@ -491,7 +491,8 @@ Decide
 - Correcting data types
 - Connecting related tables
 - Ensuring model consistency
-- Protecting unnecessary personal information
+
+> The current dataset is entirely synthetic, so no personal or identifying information exists in it. Data governance and privacy review are listed under Future Scope for when real institutional data is used.
 
 ---
 
@@ -697,53 +698,54 @@ No. The dashboard identifies gaps and relationships for decision support. It doe
 
 ---
 
-# 📂 Suggested Repository Structure
+# 📂 Repository Structure
 
 ```text
-placement-skill-gap-hub/
+HACKORBIT_2K26_Codeavengers/
 │
 ├── README.md
 │
-├── dashboard/
-│   ├── placement_skill_gap_hub_modern_ui.html
-│   └── assets/
+├── 01_Strategy/
+│   ├── workflow_HACKORBIT.pdf          Hour-by-hour build plan, checkpoints
+│   └── report_HACKORBIT.pdf            Full spec: DAX, dashboard pages, judge Q&A
 │
-├── powerbi/
-│   ├── Placement_Skill_Gap_Hub.pbix
-│   └── screenshots/
+├── 02_Dataset/
+│   ├── Placement_SkillGap_Hub_Dataset.xlsx
+│   ├── Students_Placement.csv
+│   ├── Student_Skills.csv
+│   └── Industry_Skill_Demand.csv
 │
-├── data/
-│   ├── students.csv
-│   ├── skills.csv
-│   └── industry_demand.csv
+├── 03_Dataset_Generator_Scripts/
+│   ├── generate_dataset.py             Regenerates the 3 CSVs
+│   └── build_workbook.py               Rebuilds the formatted .xlsx
 │
-├── docs/
-│   ├── architecture/
-│   ├── methodology/
-│   └── presentation/
+├── 04_Web_Dashboard/
+│   └── index.html                      Standalone showcase — no build step, no dependencies
 │
-└── LICENSE
+└── 05_PowerBI_File/
+    └── Placement_SkillGap_Hub.pbix     The actual Power BI report
 ```
 
 ---
 
 # ▶️ Running the Showcase
 
-The showcase is a standalone HTML page.
+The showcase is a standalone HTML page &mdash; no build step, no npm install, no external dependency (verified: zero CDN references, zero external scripts).
 
 ### Option 1 — Open directly
 
 Open:
 
 ```text
-placement_skill_gap_hub_modern_ui.html
+04_Web_Dashboard/index.html
 ```
 
-in a modern browser.
+in any modern browser.
 
 ### Option 2 — Run a local server
 
 ```bash
+cd 04_Web_Dashboard
 python -m http.server 8000
 ```
 
@@ -753,7 +755,7 @@ Then open:
 http://localhost:8000/
 ```
 
-The showcase uses client-side data and does not require a backend server or external runtime dependency.
+Either way works identically &mdash; the page computes everything client-side from data embedded in the file itself.
 
 ---
 
